@@ -1,31 +1,4 @@
-<?php 
-
-require 'includes/init.php';
-
-$conn = require 'includes/db.php';
-
-$products = new Product($conn);
-
-
-
-// $products = $products->getAll($conn);
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $products->productName = $_REQUEST["productName"];
-    $products->stock = $_REQUEST["stock"];
-    $products->price = $_REQUEST["price"];
-    $products->description = $_REQUEST["description"];
-
-    $products = $products->createProduct($conn);
-    
-}
-
-?>
-
-<?php require 'includes/header.php' ?>
-
-    <div class="create_product">
+<div class="product_form">
         <form method="POST">
             <div>
                 <label for="productName">Create Product</label>
@@ -53,5 +26,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         </form>
     </div>
-
-<?php require 'includes/footer.php' ?>

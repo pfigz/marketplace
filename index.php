@@ -1,24 +1,30 @@
 <?php 
 
+require 'includes/init.php';
+
+$conn = require 'includes/db.php';
+
+$products = new Product;
+
+// $id = $products->getByID($conn, $_GET['productID']);
+
+$list_products = $products->getAll($conn);
+
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marketplace App</title>
-</head>
-<body>
-    
-   <div class="container">
+<?php require 'includes/header.php' ?>
 
-       <main>
+    <?php foreach ($list_products as $product) : ?>
 
-       </main>
+        <form method="POST">
+            <ul>
+                <p><?php echo $product['productName']?></p>
+                <p><?php echo $product['description']?></p>
+                <a href="product.php?id=<?= $product['productID'] ?>">View Product</a>
+            </ul>
+        </form>
 
-   </div>
-    
-</body>
-</html>
+    <?php endforeach; ?>
+
+<?php require 'includes/footer.php' ?>
