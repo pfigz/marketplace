@@ -43,11 +43,11 @@ class Product
     public $price;
 
     /**
-     * The product description
+     * The product details
      *
      * @var string
      */
-    public $description;
+    public $details;
 
     /**
      * The date the product was added to the marketplace
@@ -86,7 +86,7 @@ class Product
      *
      * @param object $conn    Connection to the database
      * @param int $productID  The product id number
-     * @param string $columns Optional list of columns for the selct, defaults to '*'
+     * @param string $columns Optional list of columns for the selection, defaults to '*'
      * 
      * @return mixed          An object of this class, or null if not found
      */
@@ -113,45 +113,52 @@ class Product
      * Undocumented function
      *
      * @param object $conn A connection to the database
+     * 
      * @return void
      */
-    public function createProduct($conn)
+    public function addProduct($conn)
     {
-        $sql = "INSERT INTO product (productName, stock, price, description)
-                VALUES (:productName, :stock, :price, :description)";
+        $sql = "INSERT INTO product (productName, stock, price, details)
+                VALUES (:productName, :stock, :price, :details)";
 
         $stmt = $conn->prepare($sql);
 
         $stmt->bindValue(':productName', $this->productName, PDO::PARAM_STR);
-        $stmt->bindValue(':stock', $this->stock, PDO::PARAM_INT);
-        $stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
-        $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+        $stmt->bindValue(':stock',       $this->stock,       PDO::PARAM_INT);
+        $stmt->bindValue(':price',       $this->price,       PDO::PARAM_INT);
+        $stmt->bindValue(':details',     $this->details,     PDO::PARAM_STR);
 
 
-        return $stmt->execute();
+        if ($stmt->execute()) {
+
+            $this->productID = $conn->lastInsertID();
+            
+        }
     }
 
     /**
      * Update a product with new property values
      *
      * @param object $conn A connection to the database
+     * 
      * @return void
      */
     public function update($conn)
     {
         $sql = "UPDATE product
-                SET productName = :productName
-                    stock       = :stock
-                    price       = :price
-                    description = :description
+                SET productName = :productName,
+                    stock       = :stock,
+                    price       = :price,
+                    details     = :details
                 WHERE productID = :productID";
 
         $stmt = $conn->prepare($sql);
 
+        $stmt->bindValue(':productID',   $this->productID,   PDO::PARAM_INT);
         $stmt->bindValue(':productName', $this->productName, PDO::PARAM_STR);
-        $stmt->bindValue(':stock', $this->stock, PDO::PARAM_INT);
-        $stmt->bindValue(':price', $this->price, PDO::PARAM_INT);
-        $stmt->bindValue(':description', $this->description, PDO::PARAM_STR);
+        $stmt->bindValue(':stock',       $this->stock,       PDO::PARAM_INT);
+        $stmt->bindValue(':price',       $this->price,       PDO::PARAM_INT);
+        $stmt->bindValue(':details',     $this->details,     PDO::PARAM_STR);
 
         return $stmt->execute();
     }
@@ -160,6 +167,7 @@ class Product
      * Delete a product from the database
      *
      * @param object $conn A connection to the database
+     * 
      * @return void
      */
     public function removeProduct($conn)
@@ -172,5 +180,20 @@ class Product
         $stmt->bindValue(':productID', $this->productID, PDO::PARAM_INT);
 
         return $stmt->execute();
+    }
+
+    public function getRemainingStock($conn, $cartQuantity)
+    {
+        $sql = "SELECT stock
+                FROM product
+                WHERE productID = :productID";
+        
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bindValue(':productID', $cartQuantity, PDO::PARAM_INT);
+
+        $stock = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $stock;
     }
 }

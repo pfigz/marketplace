@@ -4,12 +4,14 @@ require 'includes/init.php';
 
 $conn = require 'includes/db.php';
 
+$auth = new Auth;
+
 $url = new Url;
 
-if (isset($_GET['id'])) {
+if (isset($_GET['productID'])) {
 
     
-    $product = Product::getProduct($conn, $_GET['id']);
+    $product = Product::getProduct($conn, $_GET['productID']);
 
     if ( ! $product) {
 
@@ -19,7 +21,7 @@ if (isset($_GET['id'])) {
 
 } else {
 
-    die("id not supplied, article not found");
+    die("id not supplied, product not found");
 
 }
 
@@ -27,9 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($product->removeProduct($conn)) {
 
-        $url->redirect("/marketplace/index.php");
-    }
-      
+        $url->redirect("/marketplace/products.php");
+    }     
 }
 
 ?>
@@ -43,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p>Are you sure?</p>
 
     <button type="submit" name="delete">Delete</button>
-    <a href="product.php?id=<?= $product->productID; ?>">Cancel</a>
+    <a href="product.php?productID=<?= $product->productID; ?>">Cancel</a>
 
 </form>
 

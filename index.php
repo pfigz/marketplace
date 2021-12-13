@@ -4,27 +4,26 @@ require 'includes/init.php';
 
 $conn = require 'includes/db.php';
 
-$products = new Product;
-
-// $id = $products->getByID($conn, $_GET['productID']);
-
-$list_products = $products->getAll($conn);
-
+$auth = new Auth;
 
 ?>
 
 <?php require 'includes/header.php' ?>
 
-    <?php foreach ($list_products as $product) : ?>
+<?php if (!$auth->isLoggedIn()): ?>
 
-        <form method="POST">
-            <ul>
-                <p><?php echo $product['productName']?></p>
-                <p><?php echo $product['description']?></p>
-                <a href="product.php?id=<?= $product['productID'] ?>">View Product</a>
-            </ul>
-        </form>
+    <h2>Welcome to the Market Place</h2>
 
-    <?php endforeach; ?>
+    <h3>Please <a href="/marketplace/public/views/sign_up.php">signup</a> or <a href="/marketplace/public/views/login.php">login</a> to view our products</h3>
+
+<?php endif; ?>
+
+<?php if ($auth->isLoggedIn()): ?>
+
+    <div class="container d-flex justify-content-center align-items-center">
+        <h2>Welcome to the Market Place <?= $_SESSION['username'] ?></h2>
+    </div>
+
+<?php endif; ?>
 
 <?php require 'includes/footer.php' ?>
