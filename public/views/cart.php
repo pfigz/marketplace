@@ -4,53 +4,68 @@ require '../../includes/init.php';
 
 $conn = require '../../includes/db.php';
 
-require '../../includes/add_to_cart.php';
+require '../../func/add_to_cart.php';
 
-require '../../includes/view_cart.php';
+// require '../../func/updateCart.php';
 
-$auth = new Auth;
+require '../../func/view_cart.php';
+
 
 ?>
 
 <?php require '../../includes/header.php' ?>
+
+    <div class="card">            
+        <h3>Subtotal: $<span id="subtotal"><?= htmlspecialchars($subtotal) ?></span></h3>  
+    </div>
         
     <?php if (empty($products)): ?>
         <p>Your shopping cart is empty</p>
     <?php else: ?>
-        <table class="table">
+        <a href="checkout.php">
+            <button class="mt-5">
+                Checkout
+            </button>
+        </a>
+        <table class="table align-middle">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                </tr>
+            </thead>
             <?php foreach ($products as $p): ?>
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                    </tr>
-                </thead>
 
                 <tbody>
                     <th scope="row">
-                        <img src="https://picsum.photos/id/<?= $p['productID']; ?>/100" class="img-thumbnail" alt="<?php echo $p['productName']; ?>">
-                        <a href="/marketplace/remove_from_cart.php?productID=<?= $p['productID'] ?>">Remove from cart</a>
+                        <?php if (empty($p['productImage'])) : ?>
+                            <a href="/marketplace/public/views/product.php?productID=<?= $p['productID'] ?>">
+                                <img src="https://picsum.photos/id/<?= $p['productID']; ?>/150" class="img-thumbnail" alt="<?php echo $p['productName']; ?>">
+                            </a>
+                        <?php else : ?>
+                            <img src="<?= $p['productImage']; ?>" class="img-thumbnail" height="150" width="150" alt="<?php echo $p['productName']; ?>">
+                        <?php endif; ?>
+                        
+                        <a href="/marketplace/func/remove_from_cart.php?productID=<?= $p['productID'] ?>">Remove from cart</a>
                     </th>
+
+                    <!--Product Name-->
                     <td><?php echo $p['productName']; ?></td>
-                    <td>$<?php echo $p['price']; ?></td>
-                    <td>Quantity: <input type="number" name="update" id="update" value="<?= $cart_ids[$p['productID']] ?>"></input></td>
+
+                    <!--Price-->
+                    <td >$<span class="price" id="price" value="<?= htmlspecialchars($p['price']); ?>"><?= htmlspecialchars($p['price']); ?></span></td>
+
+                    <!--Quantity-->
+                    <td>Qty: <input type="number" name="quantity" class="quantity" id="quantity" value="<?= htmlspecialchars($cart_ids[$p['productID']]); ?>" max="<?= $p['stock'] ?>" onchange="updateCart();"></input></td>
+
                 </tbody>                
         
             <?php endforeach; ?>
-
-            <div class="card" id="subtotal" name="subtotal">             
-                    <h3>Subtotal: $<?= $subtotal ?></h3>  
-            </div>
-    
-            <a href="submit_order.php">
-                <button>
-                    Submit Order
-                </button>
-            </a>
-        <?php endif; ?>
-    </table>   
+        </table> 
+    <?php endif; ?>
 
 
+          
 <?php require '../../includes/footer.php' ?>

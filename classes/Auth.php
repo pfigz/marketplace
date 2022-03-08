@@ -63,7 +63,7 @@ class Auth
 
         $_SESSION['is_logged_in'] = true;
         $_SESSION['username'] = $username;
-        $_SESSION['cart'] = [];
+        $_SESSION['quantity'] = [];
         $_SESSION['price'] = [];
 
     }
@@ -75,8 +75,6 @@ class Auth
      */
     public function logout()
     {
-        // $_SESSION = [];
-
         if (ini_get("session.use_cookies")) {
 
             $params = session_get_cookie_params();

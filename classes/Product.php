@@ -57,11 +57,19 @@ class Product
     public $creationDate;
 
     /**
+     * The product image location stored in the database
+     *
+     * @var string
+     */
+    public $image;
+
+    /**
      * An array of errors
      *
      * @var array
      */
     public $errors = [];
+
 
     /**
      * Get all the products
@@ -118,8 +126,8 @@ class Product
      */
     public function addProduct($conn)
     {
-        $sql = "INSERT INTO product (productName, stock, price, details)
-                VALUES (:productName, :stock, :price, :details)";
+        $sql = "INSERT INTO product (productName, stock, price, details, productImage)
+                VALUES (:productName, :stock, :price, :details, :image)";
 
         $stmt = $conn->prepare($sql);
 
@@ -127,7 +135,7 @@ class Product
         $stmt->bindValue(':stock',       $this->stock,       PDO::PARAM_INT);
         $stmt->bindValue(':price',       $this->price,       PDO::PARAM_INT);
         $stmt->bindValue(':details',     $this->details,     PDO::PARAM_STR);
-
+        $stmt->bindValue(':image',       $this->image,       PDO::PARAM_STR);
 
         if ($stmt->execute()) {
 
@@ -195,5 +203,25 @@ class Product
         $stock = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return $stock;
+    }
+
+    public function addImage($conn, $image)
+    {
+        $this->productID = $conn->lastInsertID();
+        $target_dir = "../public/assets/images";
+        $image_path = $target_dir . basename($image);
+
+
+        $sql = "INSERT INTO product (productImage)
+                VALUE $image_path
+                WHERE 'productID' = $this->productID";
+
+        $stmt = $conn->prepare($sql);
+        
+        $stmt->execute();
+
+            
+            
+        
     }
 }

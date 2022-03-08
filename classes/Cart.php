@@ -73,7 +73,7 @@ Class Cart
      */
     public function remove()
     {
-            unset($_SESSION['cart'][$_GET['productID']]);
+            unset($_SESSION['quantity'][$_GET['productID']]);
             unset($_SESSION['price'][$_GET['productID']]);
     }
 
@@ -121,12 +121,5 @@ Class Cart
         $subtotal = array_sum(array_map('subtotal', $quantity, $price));
 
         return $subtotal;
-    }
-
-    public function quantity($sessionCart, $sessionPrice)
-    {
-        // get stock info
-        // get session info
-        // deduct session from stock
     }
 }

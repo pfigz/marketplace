@@ -40,12 +40,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <form method="POST">
             <div class="username">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" value="<?= htmlspecialchars($customer->username); ?>">
+                <input type="text" class="form-control mb-2" name="username" id="username" placeholder="Enter username" value="<?= htmlspecialchars($customer->username); ?>">
             </div>
 
             <div class="email">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email address" value="<?= htmlspecialchars($customer->email); ?>">
+                <input type="email" class="form-control mb-2" name="email" id="email" placeholder="Enter your email address" value="<?= htmlspecialchars($customer->email); ?>">
             </div>
 
             <div class="password">

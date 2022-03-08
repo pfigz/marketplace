@@ -1,8 +1,8 @@
 <?php 
 
-require 'includes/init.php';
+require '../../includes/init.php';
 
-$conn = require 'includes/db.php';
+$conn = require '../../includes/db.php';
 
 $auth = new Auth;
 
@@ -29,13 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($product->removeProduct($conn)) {
 
-        $url->redirect("/marketplace/products.php");
+        $url->redirect("/marketplace/public/views/products.php");
     }     
 }
 
 ?>
 
-<?php require 'includes/header.php' ?>
+<?php require '../../includes/header.php' ?>
 
 <h2>Delete Article</h2>
 
@@ -48,5 +48,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 </form>
 
-<?php require 'includes/footer.php' ?>
+<?php require '../../includes/footer.php' ?>
 <!-- Make HTML code for delete page -> see PHP Beginners Course -->

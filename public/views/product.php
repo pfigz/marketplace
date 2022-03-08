@@ -14,7 +14,11 @@ $product = $products->getProduct($conn, $_GET['productID']);
 
 $comment = new Comment;
 
-$comments = $comment->getComments($conn, $_GET['productID'])
+$comments = $comment->getComments($conn, $_GET['productID']);
+
+// var_dump($product);
+// exit;
+
 
 ?>
 
@@ -22,8 +26,12 @@ $comments = $comment->getComments($conn, $_GET['productID'])
 
 <div class="container">
     <div class="row">
-        <div class="col-6 col-md">          
-            <img src="https://picsum.photos/id/<?= $product->productID; ?>/300" alt="<?php echo $product->productName; ?>">
+        <div class="col-6 col-md">
+            <?php if (empty($product->productImage)): ?>          
+                <img src="https://picsum.photos/id/<?= $product->productID; ?>/300" alt="<?php echo $product->productName; ?>">
+            <?php else: ?>
+                <img src="<?= $product->productImage; ?>" height="300" width="300" alt="<?php echo $product->productName; ?>">
+            <?php endif; ?>
             <div>
                 <a class="edit" href="edit_product.php?id=<?= $product->productID; ?>">Edit Product</a>
                 <a class="delete" href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
@@ -40,7 +48,7 @@ $comments = $comment->getComments($conn, $_GET['productID'])
                     Amount available: <?php echo $product->stock; ?>
                     <form action="cart.php" method="POST">
 
-                        <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" placeholder="Quantity" required></div>
+                        <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required></div>
                         <input type="hidden" name="productID" value="<?= $product->productID ?>">
                         <input type="hidden" name="price" value="<?= $product->price ?>">
                         <br>
@@ -54,13 +62,13 @@ $comments = $comment->getComments($conn, $_GET['productID'])
     </div>
 </div>
 
-<button class="btn btn-primary mt-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Customer Reviews</button>
+<button class="btn btn-primary mt-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Customer Comments</button>
 
 <div class="accordion mt-5">
     <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                Would you like to submit a review?
+                Would you like to submit a comment?
             </button>
         </h2>
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
@@ -75,7 +83,7 @@ $comments = $comment->getComments($conn, $_GET['productID'])
                         </div>
                         <label for="comment">Subject</label>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control" name="comment" id="comment" placeholder="What's the subjec of your review?">
+                            <input type="text" class="form-control" name="comment" id="comment" placeholder="What's the subject of your review?">
                         </div>
                         <label for="comment">Review</label>
                         <div class="input-group mb-3">
