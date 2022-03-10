@@ -54,7 +54,7 @@
                                 Hello, <?php echo $_SESSION['username'] ?>
                             </a>
                             <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/marketplace/logout.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="/marketplace/func/logout.php">Logout</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>
