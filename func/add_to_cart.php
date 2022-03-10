@@ -1,7 +1,5 @@
 <?php
 
-// $conn = require '../../includes/db.php';
-
 $cart = new Cart;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
