@@ -58,7 +58,9 @@ require '../../func/view_cart.php';
                     <td >$<span class="price" id="price" value="<?= htmlspecialchars($p['price']); ?>"><?= htmlspecialchars($p['price']); ?></span></td>
 
                     <!--Quantity-->
-                    <td>Qty: <input type="number" name="quantity" class="quantity" id="quantity" value="<?= htmlspecialchars($cart_ids[$p['productID']]); ?>" max="<?= $p['stock'] ?>" onchange="updateCart();"></input></td>
+                    <form id="updateQuantity">
+                        <td>Qty: <input type="number" name="quantity" class="quantity" id="quantity" value="<?= htmlspecialchars($cart_ids[$p['productID']]); ?>" max="<?= $p['stock'] ?>" onchange="updateCart();"></input></td>
+                    </form>
 
                 </tbody>                
         
@@ -68,4 +70,5 @@ require '../../func/view_cart.php';
 
 
           
+<pre><?php var_dump($_SESSION); ?></pre>
 <?php require '../../includes/footer.php' ?>

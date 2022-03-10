@@ -29,11 +29,26 @@ function updateCart() {
 
     // Display new Subtotal
     document.getElementById("subtotal").innerHTML = subtotal;
+
+    console.log("Hello");
+
+    // JQuery Ajax Request
+    Jquery("#updateQuantity").submit(function($) {
+        $.ajax({
+            type: "POST",
+            url: "/func/update_quantity.php",
+            data: $(subtotal).serialize(),
+            success: function() {
+                alert("Eureka!");
+            }
+        });
+    });
+
     
     // AJAX
     // let xhttp = new XMLHttpRequest();
-    // xhttp.open("POST", "../../func/add_to_cart.php", true); 
-    // xhttp.setRequestHeader("Content-Type", "application/json");
+    // xhttp.open("POST", "../../func/update_cart.php", true); 
+    // xhttp.setRequestHeader("Content-Type", "application/javascript");
     // xhttp.onreadystatechange = function() {
     //     if (this.readyState == 4 && this.status == 200) {
     //         // Response
