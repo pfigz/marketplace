@@ -1,6 +1,6 @@
 <?php
 
-$conn = require '../../includes/db.php';
+// $conn = require '../../includes/db.php';
 
 $cart = new Cart;
 
