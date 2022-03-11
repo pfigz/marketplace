@@ -6,10 +6,9 @@ $conn = require '../../includes/db.php';
 
 require '../../func/add_to_cart.php';
 
-// require '../../func/updateCart.php';
-
 require '../../func/view_cart.php';
 
+require '../../func/update_quantity.php';
 
 ?>
 
@@ -57,18 +56,15 @@ require '../../func/view_cart.php';
                     <!--Price-->
                     <td >$<span class="price" id="price" value="<?= htmlspecialchars($p['price']); ?>"><?= htmlspecialchars($p['price']); ?></span></td>
 
-                    <!--Quantity-->
-                    <form id="updateQuantity">
+                    <!--Quantity-->                   
                         <td>Qty: <input type="number" name="quantity" class="quantity" id="quantity" value="<?= htmlspecialchars($cart_ids[$p['productID']]); ?>" max="<?= $p['stock'] ?>" onchange="updateCart();"></input></td>
-                    </form>
 
                 </tbody>                
         
             <?php endforeach; ?>
         </table> 
     <?php endif; ?>
+       
+<pre><?php var_dump($_SESSION['quantity']); ?></pre>
 
-
-          
-<pre><?php var_dump($_SESSION); ?></pre>
 <?php require '../../includes/footer.php' ?>

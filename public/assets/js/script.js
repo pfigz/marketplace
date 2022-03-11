@@ -30,34 +30,17 @@ function updateCart() {
     // Display new Subtotal
     document.getElementById("subtotal").innerHTML = subtotal;
 
-    console.log("Hello");
+    // console.log(quantities);
 
     // JQuery Ajax Request
-    Jquery("#updateQuantity").submit(function($) {
-        $.ajax({
-            type: "POST",
-            url: "/func/update_quantity.php",
-            data: $(subtotal).serialize(),
-            success: function() {
-                alert("Eureka!");
-            }
-        });
+    $.ajax({
+        type: "POST",
+        url: "/marketplace/func/update_quantity.php",
+        data: $(quantities),
+        success: function() {
+            console.log("Eureka!");
+        }
     });
-
-    
-    // AJAX
-    // let xhttp = new XMLHttpRequest();
-    // xhttp.open("POST", "../../func/update_cart.php", true); 
-    // xhttp.setRequestHeader("Content-Type", "application/javascript");
-    // xhttp.onreadystatechange = function() {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //         // Response
-    //         let response = this.responseText;
-    //     }
-    // };
-
-    // let data = quantities;
-    // xhttp.send(JSON.stringify(data));
 }
 
 

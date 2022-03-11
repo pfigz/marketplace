@@ -1,7 +1,8 @@
 <?php
 
-// session_start();
+$quantities = $_SESSION['quantity'];
+$updatedQuantities = $_POST;
 
-// $_SESSION['quantity']
+$_SESSION['quantity'] = array_replace($quantities, $updatedQuantities);
 
-// var_dump($_SESSION);
+

@@ -3,8 +3,6 @@
 $cart = new Cart;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // var_dump($_POST);
-    // exit;
 
     $product = $cart->addToCart($conn, $_POST['productID']);
 
@@ -30,8 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $_SESSION['price'] = array($productID => $price); 
             }
         }
-        // var_dump($_SESSION);
-        // exit; 
     }
 
     header('location: cart.php');
