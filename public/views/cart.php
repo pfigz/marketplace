@@ -4,7 +4,7 @@ require '../../includes/init.php';
 
 $conn = require '../../includes/db.php';
 
-require '../../func/add_to_cart.php';
+// require '../../func/add_to_cart.php';
 
 require '../../func/view_cart.php';
 
@@ -57,7 +57,7 @@ require '../../func/update_quantity.php';
                     <td >$<span class="price" id="price" value="<?= htmlspecialchars($p['price']); ?>"><?= htmlspecialchars($p['price']); ?></span></td>
 
                     <!--Quantity-->                   
-                        <td>Qty: <input type="number" name="quantity" class="quantity" id="quantity" value="<?= htmlspecialchars($cart_ids[$p['productID']]); ?>" max="<?= $p['stock'] ?>" onchange="updateCart();"></input></td>
+                        <td>Qty: <input type="number" name="quantity" class="quantity" id="quantity" min="0" value="<?= htmlspecialchars($cart_ids[$p['productID']]); ?>" max="<?= $p['stock'] ?>" onchange="updateCart();"></input></td>
 
                 </tbody>                
         

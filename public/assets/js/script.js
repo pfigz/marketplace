@@ -38,7 +38,7 @@ function updateCart() {
         url: "/marketplace/func/update_quantity.php",
         data: $(quantities),
         success: function() {
-            console.log("Eureka!");
+            console.log(quantities);
         }
     });
 }

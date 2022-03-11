@@ -1,6 +1,12 @@
 <?php
 
+require '../includes/init.php';
+
+$conn = require '../includes/db.php';
+
 $cart = new Cart;
+
+$url = new Url;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
@@ -30,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
 
-    header('location: cart.php');
-    exit;
+    $url->redirect('/marketplace/public/views/cart.php');
 }
 
