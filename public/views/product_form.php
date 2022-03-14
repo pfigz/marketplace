@@ -2,7 +2,7 @@
     <form autocomplete="off" method="POST" enctype="multipart/form-data">
         <div class="form-group mb-3">
             <div>
-                <label for="productName" class="form-label">Product Namet</label>
+                <label for="productName" class="form-label">Product Name</label>
                 <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name" value="<?= $product->productName; ?>">
             </div>
         </div>
