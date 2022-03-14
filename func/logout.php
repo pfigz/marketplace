@@ -10,5 +10,5 @@ $auth->logout();
 
 session_destroy();
 
-$url->redirect('/marketplace/');
+$url->redirect('/');
 
