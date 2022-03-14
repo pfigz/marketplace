@@ -9,7 +9,6 @@ $auth = new Auth;
 $url = new Url;
 
 if (isset($_GET['productID'])) {
-
     
     $product = Product::getProduct($conn, $_GET['productID']);
 
@@ -49,4 +48,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </form>
 
 <?php require '../../includes/footer.php' ?>
-<!-- Make HTML code for delete page -> see PHP Beginners Course -->

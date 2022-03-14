@@ -15,13 +15,6 @@ Class Cart
      */
     public $productID;
 
-    // /**
-    //  * An array of the products in the shopping cart
-    //  *
-    //  * @var array
-    //  */
-    // public $products;
-
     /**
      * The quantity of a specific product in the shopping cart
      *

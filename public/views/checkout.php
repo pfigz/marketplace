@@ -67,7 +67,7 @@ $auth = new Auth;
                         <tbody>
                             <td>
                                 <?php if (empty($p['productImage'])) : ?>
-                                    <a href="/marketplace/public/views/product.php?productID=<?= $p['productID'] ?>">
+                                    <a href="/public/views/product.php?productID=<?= $p['productID'] ?>">
                                         <img src="https://picsum.photos/id/<?= $p['productID']; ?>/150" class="img-thumbnail" alt="<?php echo $p['productName']; ?>">
                                     </a>
                                 <?php else : ?>
@@ -80,10 +80,10 @@ $auth = new Auth;
                             <td><?php echo $p['productName']; ?></td>
     
                             <!--Price-->
-                            <td >$<span class="price" id="price" value="<?= htmlspecialchars($p['price']); ?>"><?= htmlspecialchars($p['price']); ?></span></td>
+                            <td >$<span class="price" id="price" value="<?= $p['price']; ?>"><?= $p['price']; ?></span></td>
     
                             <!--Quantity-->
-                            <td>Qty: <?= htmlspecialchars($cart_ids[$p['productID']]); ?></td>
+                            <td>Qty: <?= $cart_ids[$p['productID']]; ?></td>
                         </tbody>
                     <?php endforeach; ?>
             </table>

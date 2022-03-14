@@ -14,7 +14,7 @@
             crossorigin="anonymous">
     </script>
 
-    <script src="/marketplace/public/assets/js/script.js"></script>  
+    <script src="/public/assets/js/script.js"></script>  
 
 </body>
 </html>

@@ -3,17 +3,12 @@
 require "../../includes/init.php";
 
 $auth = new Auth;
-// $auth->requireLogin();
 
 $conn = require "../../includes/db.php";
 
 $products = new Product;
 
-// $id = $products->getByID($conn, $_GET['productID']);
-
 $list_products = $products->getAll($conn);
-// var_dump($list_products);
-// exit;
 ?>
 
 <?php require '../../includes/header.php' ?>
@@ -21,12 +16,9 @@ $list_products = $products->getAll($conn);
 <div class="row">
     <?php foreach ($list_products as $product) : ?>
 
-        <!-- <?= var_dump($product);?> -->
-        
-
             <div class="col-sm-4 d-flex justify-content-center mb-4">
                 <div class="card h-100" style="width: 18rem">
-                    <a href="/marketplace/public/views/product.php?productID=<?= $product['productID'] ?>">
+                    <a href="/public/views/product.php?productID=<?= $product['productID'] ?>">
                         <?php if ( empty($product['productImage'])) : ?>
                             <img src="https://picsum.photos/id/<?= $product['productID']; ?>/500" class="card-img-top img-fluid" alt="<?php echo $product['productName']; ?>">
                         <?php else : ?>

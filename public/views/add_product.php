@@ -14,10 +14,10 @@ $conn = require '../../includes/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Create custom directory and path for image based on product name 
-    $image_folder = mkdir("M:/laragon/www/marketplace/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/");
-    $image_dir = "M:/laragon/www/marketplace/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/";
+    $image_folder = mkdir("/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/");
+    $image_dir = "/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/";
     $image_path = $image_dir . basename($_FILES['image']['name']);
-    $image = "/marketplace/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/" . basename($_FILES['image']['name']); 
+    $image = "/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/" . basename($_FILES['image']['name']); 
 
     // Identify the uploaded image file
     $temp_file  = $_FILES['image']['tmp_name'];
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Send uploaded image to custom directory from above
     move_uploaded_file($temp_file, $image_path);
 
-    $url->redirect("/marketplace/public/views/product.php?productID=$product->productID");
+    $url->redirect("/public/views/product.php?productID=$product->productID");
       
 }
 

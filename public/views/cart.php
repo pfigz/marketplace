@@ -4,8 +4,6 @@ require '../../includes/init.php';
 
 $conn = require '../../includes/db.php';
 
-// require '../../func/add_to_cart.php';
-
 require '../../func/view_cart.php';
 
 require '../../func/update_quantity.php';
@@ -40,14 +38,14 @@ require '../../func/update_quantity.php';
                 <tbody>
                     <th scope="row">
                         <?php if (empty($p['productImage'])) : ?>
-                            <a href="/marketplace/public/views/product.php?productID=<?= $p['productID'] ?>">
+                            <a href="/public/views/product.php?productID=<?= $p['productID'] ?>">
                                 <img src="https://picsum.photos/id/<?= $p['productID']; ?>/150" class="img-thumbnail" alt="<?php echo $p['productName']; ?>">
                             </a>
                         <?php else : ?>
                             <img src="<?= $p['productImage']; ?>" class="img-thumbnail" height="150" width="150" alt="<?php echo $p['productName']; ?>">
                         <?php endif; ?>
                         
-                        <a href="/marketplace/func/remove_from_cart.php?productID=<?= $p['productID'] ?>">Remove from cart</a>
+                        <a href="/func/remove_from_cart.php?productID=<?= $p['productID'] ?>">Remove from cart</a>
                     </th>
 
                     <!--Product Name-->
