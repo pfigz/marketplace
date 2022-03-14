@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         $auth->login($_POST['username']);
 
-        $url->redirect('/marketplace/public/views/products.php');
+        $url->redirect('/public/views/products.php');
 
     }
 }
