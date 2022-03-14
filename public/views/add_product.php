@@ -14,10 +14,10 @@ $conn = require '../../includes/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Create custom directory and path for image based on product name 
-    $image_folder = mkdir("/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/");
-    $image_dir = "/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/";
+    $image_folder = mkdir("app/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/");
+    $image_dir = "app/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/";
     $image_path = $image_dir . basename($_FILES['image']['name']);
-    $image = "/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/" . basename($_FILES['image']['name']); 
+    $image = "app/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/" . basename($_FILES['image']['name']); 
 
     // Identify the uploaded image file
     $temp_file  = $_FILES['image']['tmp_name'];
