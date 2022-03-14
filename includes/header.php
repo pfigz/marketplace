@@ -13,7 +13,7 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/marketplace/">The Marketplace</a>
+                <a class="navbar-brand" href="/">The Marketplace</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -22,27 +22,27 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">    
                     <?php if (! $auth->isLoggedIn()): ?>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/marketplace/public/views/products.php">View Products</a>
+                            <a class="nav-link active" aria-current="page" href="public/views/products.php">View Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/marketplace/public/views/cart.php">Shopping Cart</a>
+                            <a class="nav-link" href="public/views/cart.php">Shopping Cart</a>
                         </li>
 
                         <?php else: ?>
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/marketplace/public/views/products.php">View Products</a>
+                            <a class="nav-link active" aria-current="page" href="public/views/products.php">View Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/marketplace/public/views/add_product.php">Add Product</a>
+                            <a class="nav-link" href="public/views/add_product.php">Add Product</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="/marketplace/public/views/cart.php">Shopping Cart</a>
+                            <a class="nav-link" href="public/views/cart.php">Shopping Cart</a>
                         </li>
                             
                         <!-- <li class="nav-item">
-                            <a class="nav-link" href="/marketplace/logout.php">Logout</a>
+                            <a class="nav-link" href="logout.php">Logout</a>
                         </li> -->
 
                     <?php endif; ?>
@@ -54,7 +54,7 @@
                                 Hello, <?php echo $_SESSION['username'] ?>
                             </a>
                             <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/marketplace/func/logout.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="func/logout.php">Logout</a></li>
                             </ul>
                         </li>
                     <?php endif; ?>
