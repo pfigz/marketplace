@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <form method="POST">
             <div class="username">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control mb-2" name="username" id="username" placeholder="Enter username" value="<?= htmlspecialchars($customer->username, ENT_COMPAT, 'ISO-8859-1', true); ?>">
+                <input type="text" class="form-control mb-2" name="username" id="username" placeholder="Enter username" value="<?= $customer->username; ?>">
             </div>
 
             <div class="email">
