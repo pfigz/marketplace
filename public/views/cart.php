@@ -64,7 +64,5 @@ require '../../func/update_quantity.php';
             <?php endforeach; ?>
         </table> 
     <?php endif; ?>
-       
-<pre><?php var_dump($_SESSION['quantity']); ?></pre>
 
 <?php require '../../includes/footer.php' ?>
