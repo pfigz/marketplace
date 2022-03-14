@@ -14,7 +14,7 @@ $auth = new Auth;
 
     <h2>Welcome to the Market Place</h2>
 
-    <h3>Please <a href="/public/views/sign_up.php">signup</a> or <a href="/marketplace/public/views/login.php">login</a> to add products</h3>
+    <h3>Please <a href="public/views/sign_up.php">signup</a> or <a href="/marketplace/public/views/login.php">login</a> to add products</h3>
 
 <?php endif; ?>
 
