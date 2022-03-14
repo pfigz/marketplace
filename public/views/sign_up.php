@@ -45,12 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             <div class="email">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control mb-2" name="email" id="email" placeholder="Enter your email address" value="<?= htmlspecialchars($customer->email); ?>">
+                <input type="email" class="form-control mb-2" name="email" id="email" placeholder="Enter your email address" value="<?= $customer->email; ?>">
             </div>
 
             <div class="password">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Enter a password" value="<?= htmlspecialchars($customer->password); ?>">
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter a password" value="<?= $customer->password; ?>">
             </div>
 
             <div class="container d-flex justify-content-center mt-3">
