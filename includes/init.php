@@ -6,7 +6,7 @@ spl_autoload_register(function ($class) {
 
 session_start();
 
-require dirname(__DIR__) . '/config/config.php';
+require dirname(__DIR__) . 'config.php';
 
 function errorHandler($level, $message, $file, $line)
 {
