@@ -36,6 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
     }
 
-    $url->redirect('/marketplace/public/views/cart.php');
+    $url->redirect('/public/views/cart.php');
 }
 
