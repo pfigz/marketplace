@@ -47,7 +47,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                     Description: <?php echo $product->details; ?>
                     <br>
                     Amount available: <?php echo $product->stock; ?>
-                    <form action="app/func/add_to_cart.php" method="POST">
+                    <form action="/../../func/add_to_cart.php" method="POST">
 
                         <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required></div>
                         <input type="hidden" name="productID" value="<?= $product->productID ?>">
