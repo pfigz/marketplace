@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $product->stock       = $_POST['stock'];
     $product->price       = $_POST['price'];
     $product->details     = $_POST['details'];
-    $product->image       = $image;
+    // $product->image       = $image;
 
     $product->addProduct($conn);
 
