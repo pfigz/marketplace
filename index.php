@@ -6,9 +6,10 @@ $conn = require 'includes/db.php';
 
 $auth = new Auth;
 
-$_SESSION['quantity'] = [];
-$_SESSION['price'] = [];
-
+if (!$auth->isLoggedIn()) {
+    $_SESSION['quantity'] = [];
+    $_SESSION['price'] = [];
+}
 
 ?>
 
