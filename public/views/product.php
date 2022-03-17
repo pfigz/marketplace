@@ -27,6 +27,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 <div class="container">
     <div class="row">
         <div class="col-6 col-md">
+            <!-- If no product image uploaded, insert dummy image from Picsum according to product id -->
             <?php if (empty($product->productImage)): ?>          
                 <img src="https://picsum.photos/id/<?= $product->productID; ?>/300" alt="<?php echo $product->productName; ?>">
             <?php else: ?>
@@ -46,7 +47,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                     Description: <?php echo $product->details; ?>
                     <br>
                     Amount available: <?php echo $product->stock; ?>
-                    <form action="/marketplace/func/add_to_cart.php" method="POST">
+                    <form action="app/func/add_to_cart.php" method="POST">
 
                         <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required></div>
                         <input type="hidden" name="productID" value="<?= $product->productID ?>">
@@ -62,7 +63,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
     </div>
 </div>
 
-<button class="btn btn-primary mt-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Customer Comments</button>
+<button class="btn btn-primary mt-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">View Comments</button>
 
 <div class="accordion mt-5">
     <div class="accordion-item">
@@ -74,7 +75,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
             <div class="accordion-body">
                 <div class="container">
-                    <form action="../../func/comment.php" class="comment" method="POST">
+                    <form action="app/func/comment.php" class="comment" method="POST">
                         <input type="hidden" name="productID" value="<?= $product->productID ?>">
                         <input type="hidden" name="username" value="<?= $_SESSION['username'] ?>">
                         <label for="rating">Rating</label>
@@ -99,7 +100,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
             
              
 
-
+<!-- Display comments off canvas -->
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Comments</h5>
@@ -116,16 +117,13 @@ $comments = $comment->getComments($conn, $_GET['productID']);
   </div>
 </div>
 
-
-<div class="row">
+<!-- Display comments on page -->
+<!-- <div class="row">
     <?php foreach ($comments as $c): ?>
         <div>Username: <?php echo $c['username'] ?></div>
         <div>Rating: <?php echo $c['rating'] ?></div>
         <div>Comment: <?php echo $c['comment'] ?></div>
     <?php endforeach; ?>
-</div>
-
-
-
+</div> -->
 
 <?php require '../../includes/footer.php' ?>

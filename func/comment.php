@@ -21,5 +21,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $comment->createComment($conn);
 
-    $url->redirect("/marketplace/public/views/product.php?productID=$comment->productID");
+    $url->redirect("app/public/views/product.php?productID=$comment->productID");
 }
