@@ -219,9 +219,7 @@ class Product
         $stmt = $conn->prepare($sql);
         
         $stmt->execute();
-
-            
-            
-        
+       
     }
+    
 }

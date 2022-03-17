@@ -1,14 +1,15 @@
 <?php
 
+require '../includes/init.php';
 require '../vendor/autoload.php';
 
 use Aws\S3\S3Client;
 use Aws\S3\Exception\S3Exception;
 
 // AWS Info
-$bucketName = 'marketplace-app';
-$IAM_KEY = '';
-$IAM_SECRET = '';
+$bucketName = BUCKET_NAME;
+$IAM_KEY = IAM_KEY;
+$IAM_SECRET = IAM_SECRET;
 
 // Connect to AWS
 try {
@@ -19,7 +20,7 @@ try {
                 'secret' => $IAM_SECRET
             ),
             'version' => 'latest',
-            'region'  => 'us-east-2'
+            'region'  => 'eu-central-1'
         )
     );
 } catch (Exception $e) {
@@ -30,13 +31,13 @@ try {
 
 
 // For this, I would generate a unqiue random string for the key name. But you can do whatever.
-$keyName = 'test_example/' . basename($_FILES["fileToUpload"]['tmp_name']);
-$pathInS3 = 'https://s3.us-east-2.amazonaws.com/' . $bucketName . '/' . $keyName;
+$keyName = 'mymarketplacelocal/' . basename($_FILES["fileToUpload"]['tmp_name']);
+$pathInS3 = 'https://s3.eu-central-1.amazonaws.com/' . $bucketName . '/' . $keyName;
 
 // Add it to S3
 try {
     // Uploaded:
-    $file = $_FILES["fileToUpload"]['name'];
+    $file = $_FILES["fileToUpload"]['tmp_name'];
 
     $s3->putObject(
         array(
@@ -49,11 +50,6 @@ try {
 
 } catch (S3Exception $e) {
     die('Error:' . $e->getMessage());
+} catch (Exception $e) {
+    die('Error:' . $e->getMessage());
 }
-
-
-echo 'Done';
-
-// Now that you have it working, I recommend adding some checks on the files.
-// Example: Max size, allowed file types, etc.
-?>
