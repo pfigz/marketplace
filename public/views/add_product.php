@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Identify the uploaded image file
     // $temp_file  = $_FILES['image']['tmp_name'];
 
-    require '../func/s3_upload.php';
+    require '../../func/s3_upload.php';
 
     $product->productName = $_POST['productName'];
     $product->stock       = $_POST['stock'];
