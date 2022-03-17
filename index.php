@@ -16,10 +16,14 @@ $_SESSION['price'] = [];
 
 <?php if (!$auth->isLoggedIn()): ?>
 
-    <h2>Welcome to the Market Place</h2>
+    <div class="container d-flex justify-content-center">
+        <h2>Welcome to The Market Place</h2>
+    </div> 
 
-    <h3>Please <a href="public/views/sign_up.php">signup</a> or <a href="public/views/login.php">login</a> to add products</h3>
-
+    <div class="contaienr d-flex justify-content-center">
+        <h3>Please <a href="public/views/sign_up.php">signup</a> or <a href="public/views/login.php">login</a> to add products</h3>
+    </div>
+    
 <?php endif; ?>
 
 <?php if ($auth->isLoggedIn()): ?>
