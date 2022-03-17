@@ -8,7 +8,6 @@ require '../../func/view_cart.php';
 
 require '../../func/update_quantity.php';
 
-
 if (! isset($_SESSION)) {
     $_SESSION['quantity'] = [];
     $_SESSION['price'] = [];
