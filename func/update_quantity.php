@@ -1,6 +1,6 @@
 <?php
 
-require '../includes/init.php';
+require '../../includes/init.php';
 
 $url = new Url;
 
