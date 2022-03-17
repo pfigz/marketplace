@@ -6,6 +6,11 @@ $cart = new Cart;
 
 $auth = new Auth;
 
+if (! isset($_SESSION)) {
+    $_SESSION['quantity'] = [];
+    $_SESSION['price'] = [];
+}
+
 // Set product ids in Session to a variable 
 $cart_ids = isset($_SESSION['quantity']) ? $_SESSION['quantity'] : array();
 
