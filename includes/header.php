@@ -32,14 +32,14 @@
 
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/public/views/products.php">View Products</a>
-                        </li>
+                        </li>                       
                         <li class="nav-item">
                             <a class="nav-link" href="/public/views/add_product.php">Add Product</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="/public/views/cart.php">Shopping Cart</a>
                         </li>
+                        
                     <?php endif; ?>
                 </ul>
 
