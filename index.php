@@ -1,14 +1,15 @@
 <?php 
 
-session_start();
-$_SESSION['quantity'] = [];
-$_SESSION['price'] = [];
-
 require 'includes/init.php';
 
 $conn = require 'includes/db.php';
 
 $auth = new Auth;
+
+if (! $_SESSION) {
+    $_SESSION['quantity'] = [];
+    $_SESSION['price'] = [];
+}
 
 ?>
 
