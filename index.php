@@ -6,11 +6,6 @@ $conn = require 'includes/db.php';
 
 $auth = new Auth;
 
-if (!$auth->isLoggedIn()) {
-    $_SESSION['quantity'] = [];
-    $_SESSION['price'] = [];
-}
-
 ?>
 
 <?php require 'includes/header.php' ?>

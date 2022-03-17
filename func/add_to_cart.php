@@ -8,7 +8,7 @@ $cart = new Cart;
 
 $url = new Url;
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST" || http_response_code() == ""302) {
 
     $product = $cart->addToCart($conn, $_POST['productID']);
 
