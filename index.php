@@ -6,10 +6,9 @@ $conn = require 'includes/db.php';
 
 $auth = new Auth;
 
-if (! $_SESSION) {
-    $_SESSION['quantity'] = [];
-    $_SESSION['price'] = [];
-}
+$_SESSION['quantity'] = [];
+$_SESSION['price'] = [];
+
 
 ?>
 
