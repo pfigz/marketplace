@@ -38,14 +38,18 @@ require '../../func/update_quantity.php';
                 <tbody>
                     <th scope="row">
                         <?php if (empty($p['productImage'])) : ?>
+
                             <a href="/public/views/product.php?productID=<?= $p['productID'] ?>">
                                 <img src="https://picsum.photos/id/<?= $p['productID']; ?>/150" class="img-thumbnail" alt="<?php echo $p['productName']; ?>">
                             </a>
+                            
                         <?php else : ?>
+
                             <img src="<?= $p['productImage']; ?>" class="img-thumbnail" height="150" width="150" alt="<?php echo $p['productName']; ?>">
+
                         <?php endif; ?>
                         
-                        <a href="/func/remove_from_cart.php?productID=<?= $p['productID'] ?>">Remove from cart</a>
+                        <a href="../../func/remove_from_cart.php?productID=<?= $p['productID'] ?>">Remove from cart</a>
                     </th>
 
                     <!--Product Name-->

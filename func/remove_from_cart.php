@@ -14,7 +14,7 @@ if (isset($_GET['productID']) && is_numeric($_GET['productID']) && isset($_SESSI
     
     $cart->remove();
 
-    $url->redirect('/marketplace/public/views/cart.php');
+    $url->redirect('/public/views/cart.php');
 
 }
 
