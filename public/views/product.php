@@ -75,7 +75,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
             <div class="accordion-body">
                 <div class="container">
-                    <form action="app/func/comment.php" class="comment" method="POST">
+                    <form action="../../func/comment.php" class="comment" method="POST">
                         <input type="hidden" name="productID" value="<?= $product->productID ?>">
                         <input type="hidden" name="username" value="<?= $_SESSION['username'] ?>">
                         <label for="rating">Rating</label>
