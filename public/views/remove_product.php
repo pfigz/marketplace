@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($product->removeProduct($conn)) {
 
-        $url->redirect("/marketplace/public/views/products.php");
+        $url->redirect("/public/views/products.php");
     }     
 }
 

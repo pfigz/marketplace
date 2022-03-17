@@ -42,8 +42,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
             <div class="row">
                 <div class="col">
                     <h4><?= $product->productName; ?></h4>
-                    <h5>$<?php echo $product->price; ?></h5>
-                    
+                    <h5>$<?php echo $product->price; ?></h5>                   
                     Description: <?php echo $product->details; ?>
                     <br>
                     Amount available: <?php echo $product->stock; ?>
