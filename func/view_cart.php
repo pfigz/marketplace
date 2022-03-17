@@ -6,7 +6,7 @@ $cart = new Cart;
 
 $auth = new Auth;
 
-if (! isset($_SESSION)) {
+if (! isset($_SESSION['quantity']) && ! isset($_SESSION['price'])) {
     $_SESSION['quantity'] = [];
     $_SESSION['price'] = [];
 }
