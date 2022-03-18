@@ -76,7 +76,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                 <div class="container">
                     <form action="../../func/comment.php" class="comment" method="POST">
                         <input type="hidden" name="productID" value="<?= $product->productID ?>">
-                        <input type="hidden" name="username" value="<?= $_SESSION['username'] ?>">
+                        <input type="hidden" name="username" value="<?php ($_SESSION['username']) ? $_SESSION['username'] : '' ?>">
                         <label for="rating">Rating</label>
                         <div class="input-group">
                             <input type="number" name="rating" value=" " min=" " max="5">
