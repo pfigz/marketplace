@@ -9,6 +9,6 @@ $updatedQuantities = $_POST;
 
 $_SESSION['quantity'] = array_replace($quantities, $updatedQuantities);
 
-$url->redirect('https://mymarketplace-app.herokuapp.com/public/views/cart.php');
+$url->redirect('/public/views/cart.php');
 
 
