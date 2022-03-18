@@ -30,4 +30,17 @@ class Url
         exit;
 
     }
+
+    public function httpsRedirect($path)
+    {
+        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') {
+
+            $protocol = 'https';
+
+        }
+
+        header("Location: $protocol://" . $_SERVER['HTTP_HOST'] . $path);
+        exit;
+
+    }
 }
