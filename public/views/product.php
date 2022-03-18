@@ -88,7 +88,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                         <input type="hidden" name="username" value="<?php (!isset($_SESSION['username'])) ? '' : $_SESSION['username'] ?>">
                         <label for="rating">Rating</label>
                         <div class="input-group">
-                            <input type="number" name="rating" value=" " min=" " max="5">
+                            <input type="number" name="rating" value="" min="0" max="5">
                         </div>
                         <label for="comment">Subject</label>
                         <div class="input-group input-group-sm mb-3">
