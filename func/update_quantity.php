@@ -4,11 +4,17 @@ require '../includes/init.php';
 
 $url = new Url;
 
-$quantities = $_SESSION['quantity'];
-$updatedQuantities = $_POST;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-$_SESSION['quantity'] = array_replace($quantities, $updatedQuantities);
+    $quantities = $_SESSION['quantity'];
+    $updatedQuantities = $_POST;
 
-$url->redirect('/public/views/cart.php');
+    $_SESSION['quantity'] = array_replace($quantities, $updatedQuantities);
+
+    $url->httpsRedirect('/public/views/cart.php');
+
+}
+
+
 
 
