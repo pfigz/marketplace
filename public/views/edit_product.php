@@ -27,22 +27,22 @@ if (isset($_GET['id'])) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
-    $image_folder = mkdir("/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/");
-    $image_dir = "/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/";
-    $image_path = $image_dir . basename($_FILES['image']['name']);
-    $image = "/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/" . basename($_FILES['image']['name']); 
+    // $image_folder = mkdir("/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/");
+    // $image_dir = "/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/";
+    // $image_path = $image_dir . basename($_FILES['image']['name']);
+    // $image = "/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/" . basename($_FILES['image']['name']); 
 
-    $temp_file  = $_FILES['image']['tmp_name'];
+    // $temp_file  = $_FILES['image']['tmp_name'];
 
     $product->productName = $_POST['productName'];
     $product->stock       = $_POST['stock'];
     $product->price       = $_POST['price'];
     $product->description = $_POST['details'];
-    $product->image       = $image;
+    // $product->image       = $image;
 
     $product->update($conn);
 
-    move_uploaded_file($temp_file, $image_path);
+    // move_uploaded_file($temp_file, $image_path);
 
     $url->redirect("/public/views/product.php?id={$product->productID}");
    
