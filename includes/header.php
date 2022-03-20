@@ -29,6 +29,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/public/views/cart.php">Shopping Cart</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/login.php">Login</a>
+                        </li>
 
                         <?php else: ?>
 
