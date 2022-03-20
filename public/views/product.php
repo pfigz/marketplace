@@ -70,11 +70,8 @@ $comments = $comment->getComments($conn, $_GET['productID']);
     </div>
 </div>
 
-<button class="btn btn-primary mt-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">View Comments</button>
-
-
 <div class="accordion mt-5">
-    
+
     <div class="d-flex align-items-end mb-1 justify-content-start">                
         <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
                        aria-controls="offcanvasScrolling">View Comments</button>
