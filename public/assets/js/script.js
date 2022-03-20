@@ -35,7 +35,7 @@ function updateCart() {
     // JQuery Ajax Request
     $.ajax({
         type: "POST",
-        url: "https://mymarketplace-app.herokuapp.com/func/update_quantity.php",
+        url: "/../../func/update_quantity.php",
         data: $(quantities),
         success: function() {
             console.log(quantities);
