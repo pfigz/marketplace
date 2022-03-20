@@ -25,8 +25,8 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 <?php require '../../includes/header.php' ?>
 
 <div class="container">
-    <div class="row">
-        <div class="col-6 col-md">
+    <div class="d-flex flex-row justify-content-center mb-5">
+        <div class="p-2">
 
             <!-- If no product image uploaded, insert dummy image from Picsum according to product id -->
             <?php if (empty($product->productImage)): ?> 
@@ -39,35 +39,33 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 
             <?php endif; ?>
 
-            <div>
-                <a class="edit" href="edit_product.php?id=<?= $product->productID; ?>">Edit Product</a>
-                <a class="delete" href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
+            <div class="d-flex justify-content-between">>
+                <a href="edit_product.php?id=<?= $product->productID; ?>">Edit Product</a>
+                <a href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
             </div>
 
         </div>
-        <div class="col-6 d-flex align-items-center">
 
-            <div class="row">
-                <div class="col">
-                    <h4><?= $product->productName; ?></h4>
-                    <h5>$<?php echo $product->price; ?></h5>                   
-                    Description: <?php echo $product->details; ?>
-                    <br>
-                    Amount available: <?php echo $product->stock; ?>
+        <div class="container d-lg-flex">
+            <div class="mx-5 p-2">              
+                <h4><?= $product->productName; ?></h4>
+                <h5>$<?php echo $product->price; ?></h5>                   
+                Description: <?php echo $product->details; ?>
+                <br>
+                Amount available: <?php echo $product->stock; ?>
 
+                <div class="d-flex mb-2 align-items-start px-5 justify-content-center">
                     <form action="/../../func/add_to_cart.php" method="POST">
-
                         <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required></div>
                         <input type="hidden" name="productID" value="<?= $product->productID ?>">
                         <input type="hidden" name="price" value="<?= $product->price ?>">
                         <br>
-                        <div class="d-grid">                   
+                        <div class="d-grid">
                             <input class="btn-secondary mt-1" type="submit" value="Add to Cart">
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -76,25 +74,31 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 
 
 <div class="accordion mt-5">
+    
+    <div class="d-flex align-items-end mb-1 justify-content-start">                
+        <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                       aria-controls="offcanvasScrolling">View Comments</button>
+    </div> 
+
     <div class="accordion-item">
 
-    <?php if (!isset($_SESSION['username'])) : ?>
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button collapsed" disabled type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                You must login to submit a comment
-            </button>
-        </h2>
+        <?php if (!isset($_SESSION['username'])) : ?>
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" disabled type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    You must login to submit a comment
+                </button>
+            </h2>
 
-    <?php else : ?>
+        <?php else : ?>
 
-        <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                Would you like to submit a comment?
-            </button>
-        </h2>
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Would you like to submit a comment?
+                </button>
+            </h2>
 
-    <?php endif; ?>
-    
+        <?php endif; ?>
+
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
             <div class="accordion-body">
                 <div class="container">
