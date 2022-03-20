@@ -39,7 +39,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 
             <?php endif; ?>
 
-            <div class="d-flex justify-content-between">>
+            <div class="d-flex justify-content-between">
                 <a href="edit_product.php?id=<?= $product->productID; ?>">Edit Product</a>
                 <a href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
             </div>
@@ -49,23 +49,24 @@ $comments = $comment->getComments($conn, $_GET['productID']);
         <div class="container d-lg-flex">
             <div class="mx-5 p-2">              
                 <h4><?= $product->productName; ?></h4>
-                <h5>$<?php echo $product->price; ?></h5>                   
+                <h5>$<?php echo $product->price; ?></h5>   
+
                 Description: <?php echo $product->details; ?>
                 <br>
                 Amount available: <?php echo $product->stock; ?>
-
-                <div class="d-flex mb-2 align-items-start px-5 justify-content-center">
-                    <form action="/../../func/add_to_cart.php" method="POST">
-                        <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required></div>
-                        <input type="hidden" name="productID" value="<?= $product->productID ?>">
-                        <input type="hidden" name="price" value="<?= $product->price ?>">
-                        <br>
-                        <div class="d-grid">
-                            <input class="btn-secondary mt-1" type="submit" value="Add to Cart">
-                        </div>
-                    </form>
-                </div>
             </div>
+
+            <div class="d-flex mb-2 align-items-start px-5 justify-content-center">
+                <form action="/../../func/add_to_cart.php" method="POST">
+                    <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required></div>
+                    <input type="hidden" name="productID" value="<?= $product->productID ?>">
+                    <input type="hidden" name="price" value="<?= $product->price ?>">
+                    <br>
+                    <div class="d-grid">
+                        <button class="btn btn-primary" type="submit">Add to cart</button>
+                    </div>
+                </form>
+            </div>          
         </div>
     </div>
 </div>
