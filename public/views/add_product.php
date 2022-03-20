@@ -13,7 +13,7 @@ $conn = require '../../includes/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // ***The code below only works with local persistant storage. I am leaving it here because I was really pumped to get this working.
+    // ***The code below only works with local persistant storage. I am leaving it here because I was really pumped to get this working.***
     // Create custom directory and path for image based on product name 
     // $image_folder = mkdir("app/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/");
     // $image_dir = "app/public/assets/images/" . str_replace(' ', '', $_POST['productName']) . "/";
