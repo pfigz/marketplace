@@ -107,7 +107,7 @@ Class Cart
      */
     public function subtotal($quantity, $price)
     {
-        function subtotal($quantity, $price) {
+        function subtotal($quantity, $price) : float {
             
             return $quantity * $price;
         }
