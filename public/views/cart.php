@@ -20,7 +20,7 @@ require '../../func/view_cart.php';
         <p>Your shopping cart is empty</p>
     <?php else: ?>
         <a href="checkout.php">
-            <button class="mt-5">
+            <button class="btn btn-primary mt-5">
                 Checkout
             </button>
         </a>
