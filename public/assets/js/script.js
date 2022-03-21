@@ -33,14 +33,49 @@ function updateCart() {
     // console.log(quantities);
 
     // JQuery Ajax Request
-    $.ajax({
-        type: "POST",
-        url: "/../../func/update_quantity.php",
-        data: $(quantities),
-        success: function() {
-            console.log(quantities);
-        }
-    });
+    // $.ajax({
+    //     type: "POST",
+    //     url: "/../../func/update_quantity.php",
+    //     data: $(quantities),
+    //     success: function() {
+    //         console.log(quantities);
+    //     }
+    // });
 }
+
+$("#productForm").validate({
+    rules: {
+        productName: {
+            required: true
+        },
+        stock: {
+            required: true
+        },
+        price: {
+            required: true
+        },
+        details: {
+            required: true
+        },
+        image: {
+            required: false
+        }
+    }
+});
+
+$("#signUp").validate({
+    rules: {
+        username: {
+            required: true
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        password: {
+            required: true
+        }
+    }
+});
 
 

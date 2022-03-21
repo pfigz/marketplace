@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <div class="container d-flex justify-content-center">
 
-        <form method="POST">
+        <form method="POST" id="signUp">
             <div class="username">
                 <label for="username" class="form-label">Username</label>
                 <input type="text" class="form-control mb-2" name="username" id="username" placeholder="Enter username" value="<?= $customer->username; ?>">
