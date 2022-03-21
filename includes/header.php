@@ -23,15 +23,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">    
                     <?php if (! $auth->isLoggedIn()): ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/public/views/login.php">Login</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/public/views/products.php">View Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/public/views/cart.php">Shopping Cart</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/public/views/login.php">Login</a>
-                        </li>
+                        </li>                       
 
                         <?php else: ?>
 
@@ -48,15 +49,18 @@
                     <?php endif; ?>
                 </ul>
 
-                    <?php if ($auth->isLoggedIn()): ?>                           
+                    <?php if ($auth->isLoggedIn()): ?>   
+
                         <li class="nav-item navbar-nav dropdown d-flex" >
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Hello, <?php echo $_SESSION['username'] ?>
                             </a>
+                            
                             <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="/func/logout.php">Logout</a></li>
                             </ul>
                         </li>
+
                     <?php endif; ?>
                 </div>
             </div>
