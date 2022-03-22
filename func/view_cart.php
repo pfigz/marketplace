@@ -14,7 +14,7 @@ if (! isset($_SESSION['quantity']) && ! isset($_SESSION['price'])) {
 } 
 
 // Set product ids in Session to a variable 
-$cart_ids = isset($_SESSION['quantity']) ? $_SESSION['quantity'] : array();
+$cart_qty = isset($_SESSION['quantity']) ? $_SESSION['quantity'] : array();
 
 // Associative array of products in the cart
 $products = $cart->viewCart($conn, $_SESSION['quantity']);
