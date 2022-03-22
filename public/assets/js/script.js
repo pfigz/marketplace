@@ -78,4 +78,29 @@ $("#signUp").validate({
     }
 });
 
+$("#login").validate({
+    rules: {
+        username: {
+            required: true
+        },
+        password: {
+            required: true
+        }
+    }
+});
+
+$("#submitOrder").validate({
+    rules: {
+        address: {
+            required: true
+        },
+        street: {
+            required: true
+        },
+        zipcode: {
+            required: true
+        }
+    }
+});
+
 

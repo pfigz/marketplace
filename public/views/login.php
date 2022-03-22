@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="container d-flex justify-content-center">
         <div class="login">
     
-            <form method="POST">
+            <form method="POST" id="login">
                 <div class="username">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">

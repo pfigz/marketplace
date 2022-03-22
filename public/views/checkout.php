@@ -15,14 +15,14 @@ $auth = new Auth;
 
 
 
-<form action="../../func/submit_order.php">
+<form action="../../func/submit_order.php" id="submitOrder">
     <div class="container">
         <div class="row" id="address">
             <div class="address">
                     <label for="address" class="form-label">Shipping Address</label>
-                    <input type="text" class="form-control mb-1" name="address" id="address" placeholder="House Number and Street">
-                    <input type="text" class="form-control mb-1" name="address" id="address" placeholder="State">
-                    <input type="text" class="form-control mb-2" name="address" id="address" placeholder="Zipcode">
+                    <input type="text" class="form-control mb-1" name="street" id="address" placeholder="House Number and Street">
+                    <input type="text" class="form-control mb-1" name="state" id="address" placeholder="State">
+                    <input type="text" class="form-control mb-2" name="zipcode" id="address" placeholder="Zipcode">
             </div>
     
         </div>
