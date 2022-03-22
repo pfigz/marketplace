@@ -27,9 +27,6 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">    
                         <?php if (! $auth->isLoggedIn()): ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="/public/views/login.php">Login</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/public/views/products.php">View Products</a>
                             </li>
                             <li class="nav-item">
