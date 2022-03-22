@@ -67,7 +67,7 @@
                             </a>
 
                             <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="/marketplacelocal/func/logout.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="/func/logout.php">Logout</a></li>
                             </ul>
                         </li>        
                     <?php endif; ?>
