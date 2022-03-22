@@ -63,6 +63,66 @@ function updateCart() {
     });
 }
 
+// Form Validations
+$("#productForm").validate({
+    rules: {
+        productName: {
+            required: true
+        },
+        stock: {
+            required: true
+        },
+        price: {
+            required: true
+        },
+        details: {
+            required: true
+        },
+        image: {
+            required: false
+        }
+    }
+});
+
+$("#signUp").validate({
+    rules: {
+        username: {
+            required: true
+        },
+        email: {
+            required: true,
+            email: true
+        },
+        password: {
+            required: true
+        }
+    }
+});
+
+$("#login").validate({
+    rules: {
+        username: {
+            required: true
+        },
+        password: {
+            required: true
+        }
+    }
+});
+
+$("#submitOrder").validate({
+    rules: {
+        address: {
+            required: true
+        },
+        street: {
+            required: true
+        },
+        zipcode: {
+            required: true
+        }
+    }
+});
 
 
 
