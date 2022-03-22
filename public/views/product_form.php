@@ -1,5 +1,5 @@
 <div class="container">
-    <form autocomplete="off" method="POST" enctype="multipart/form-data">
+    <form autocomplete="off" method="POST" enctype="multipart/form-data" id="productForm">
         <div class="form-group mb-3">
             <div>
                 <label for="productName" class="form-label">Product Name</label>

@@ -15,7 +15,7 @@ $auth = new Auth;
 
 
 
-<form action="../../func/submit_order.php">
+<form action="../../func/submit_order.php" id="submitOrder">
     <div class="container">
         <div class="row" id="address">
             <div class="address">
