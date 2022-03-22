@@ -53,10 +53,10 @@
 
                             <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a class="dropdown-item" href="/marketplacelocal/public/views/login.php">Login</a>
+                                    <a class="dropdown-item" href="/public/views/login.php">Login</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="/marketplacelocal/public/views/sign_up.php">Signup</a>
+                                    <a class="dropdown-item" href="/public/views/sign_up.php">Signup</a>
                                 </li>
                             </ul>
                         </li>
