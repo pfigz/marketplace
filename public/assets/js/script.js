@@ -59,6 +59,7 @@ function updateCart() {
         dataType: 'json',
         data: newQuantities,
         success: function() {
+            console.log(newQuantities);
         }
     });
 }
