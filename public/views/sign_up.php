@@ -36,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </div>
 
     <div class="container d-flex justify-content-center">
-
         <form method="POST" id="signUp">
             <div class="username">
                 <label for="username" class="form-label">Username</label>
@@ -55,12 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             <div class="container d-flex justify-content-center mt-3">
                 <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
-            
+            </div>         
         </form>
-
     </div>
-
-
 
 <?php require '../../includes/footer.php' ?>

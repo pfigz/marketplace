@@ -25,7 +25,7 @@ $auth = new Auth;
 <?php if ($auth->isLoggedIn()): ?>
 
     <div class="container d-flex justify-content-center align-items-center">
-        <h2>Welcome to the Market Place <?= $_SESSION['username'] ?></h2>
+        <h2>Welcome to the Market Place <?= htmlspecialchars($_SESSION['username']); ?></h2>
     </div>
 
 <?php endif; ?>
