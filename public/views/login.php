@@ -31,9 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <h2>Please login</h2>
     </div>
 
+    <div class="container d-flex justify-content-center mb-5 mt-5">
+        <h5>Don't have an account? Please <a href="/public/views/sign_up.php">signup</a>.</h5>
+    </div>
+
     <div class="container d-flex justify-content-center">
-        <div class="login">
-    
+        <div class="login">   
             <form method="POST" id="login">
                 <div class="username">
                     <label for="username" class="form-label">Username</label>
@@ -48,9 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="container d-flex justify-content-center mt-3">
                     <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
-    
-            </form>
-    
+            </form>   
         </div>
     </div>
 </div>

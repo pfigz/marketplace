@@ -35,9 +35,8 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <button type="submit">Submit</button>
+        <div class="form-group d-flex justify-content-center">
+            <button class="btn btn-primary" type="submit">Submit</button>
         </div>
-
     </form>
 </div>
