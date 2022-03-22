@@ -55,7 +55,7 @@ function updateCart() {
     // JQuery Ajax Request
     $.ajax({
         type: "POST",
-        url: "/func/update_quantity.php",
+        url: "func/update_quantity.php",
         dataType: 'json',
         data: newQuantities,
         success: function() {
