@@ -6,12 +6,12 @@ $cart = new Cart;
 
 $auth = new Auth;
 
-if (! isset($_SESSION['quantity']) && ! isset($_SESSION['price'])) {
+// if (! isset($_SESSION['quantity']) && ! isset($_SESSION['price'])) {
 
-    $_SESSION['quantity'] = [];
-    $_SESSION['price'] = [];
+//     $_SESSION['quantity'] = [];
+//     $_SESSION['price'] = [];
     
-} 
+// } 
 
 // Set product ids in Session to a variable 
 $cart_qty = isset($_SESSION['quantity']) ? $_SESSION['quantity'] : array();
