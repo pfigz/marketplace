@@ -10,9 +10,9 @@ $url = new Url;
 
 $auth = new Auth;
 
-if (isset($_GET['id'])) {
+if (isset($_GET['productID'])) {
 
-    $product = Product::getProduct($conn, $_GET['id']);
+    $product = Product::getProduct($conn, $_GET['productID']);
 
     if ( ! $product) {
 
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $product->productName = $_POST['productName'];
     $product->stock       = $_POST['stock'];
     $product->price       = $_POST['price'];
-    $product->description = $_POST['details'];
+    $product->details     = $_POST['details'];
     // $product->image       = $image;
 
     $product->update($conn);

@@ -30,7 +30,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                 <img src="<?= $product->productImage; ?>" height="300" width="300" alt="<?php echo htmlspecialchars($product->productName); ?>">
             <?php endif; ?>
             <div class="d-flex justify-content-between">
-                <a href="edit_product.php?id=<?= $product->productID; ?>">Edit Product</a>
+                <a href="edit_product.php?productID=<?= $product->productID; ?>">Edit Product</a>
                 <a href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
             </div>
         </div>
