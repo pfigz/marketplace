@@ -68,24 +68,19 @@ $comments = $comment->getComments($conn, $_GET['productID']);
     </div> 
 
     <div class="accordion-item">
-
         <?php if (!isset($_SESSION['username'])) : ?>
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" disabled type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     You must login to submit a comment
                 </button>
             </h2>
-
         <?php else : ?>
-
             <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     Would you like to submit a comment?
                 </button>
             </h2>
-
         <?php endif; ?>
-
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
             <div class="accordion-body">
                 <div class="container">
