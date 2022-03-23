@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // move_uploaded_file($temp_file, $image_path);
 
-    $url->redirect("/public/views/product.php?id={$product->productID}");
+    $url->redirect("/public/views/product.php?productID={$product->productID}");
    
 }
 
