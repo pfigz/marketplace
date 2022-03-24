@@ -20,7 +20,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 
 <?php require '../../includes/header.php' ?>
 
-<div class="container">
+<div class="container d-lg-flex w-75">
     <div class="d-flex flex-row justify-content-center mb-5">
         <div class="p-2">
             <!-- If no product image uploaded, insert dummy image from Picsum according to product id -->
@@ -29,15 +29,19 @@ $comments = $comment->getComments($conn, $_GET['productID']);
             <?php else: ?>
                 <img src="<?= $product->productImage; ?>" height="300" width="300" alt="<?php echo htmlspecialchars($product->productName); ?>">
             <?php endif; ?>
+            
             <div class="d-flex justify-content-between">
                 <a href="edit_product.php?productID=<?= $product->productID; ?>">Edit Product</a>
                 <a href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
             </div>
         </div>
+    </div>
 
-        <div class="container d-lg-flex">
+    <div class="d-flex flex-row justify-content-center mb-5">
+        <div class="p-2">
             <div class="mx-5 p-2">              
                 <h4><?= htmlspecialchars($product->productName); ?></h4>
+
                 <h5>$<?php echo htmlspecialchars($product->price); ?></h5>   
 
                 Description: <?php echo htmlspecialchars($product->details); ?>
@@ -48,7 +52,9 @@ $comments = $comment->getComments($conn, $_GET['productID']);
             <div class="d-flex mb-2 align-items-start px-5 justify-content-center">
                 <form action="/../../func/add_to_cart.php" method="POST">
                     <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required></div>
+
                     <input type="hidden" name="productID" value="<?= $product->productID ?>">
+
                     <input type="hidden" name="price" value="<?= htmlspecialchars($product->price) ?>">
                     <br>
                     <div class="d-grid">
