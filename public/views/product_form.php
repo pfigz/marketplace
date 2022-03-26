@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container w-75">
     <form autocomplete="off" method="POST" enctype="multipart/form-data" id="productForm">
         <div class="form-group mb-3">
             <div>
