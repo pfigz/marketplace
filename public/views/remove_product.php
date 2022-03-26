@@ -28,6 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($product->removeProduct($conn)) {
 
+        unset($_SESSION['quantity'][$product->productID]);
+        unset($_SESSION['price'][$product->productID]);
+
         $url->redirect("/public/views/products.php");
     }     
 }
