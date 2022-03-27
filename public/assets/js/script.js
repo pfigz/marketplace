@@ -58,6 +58,7 @@ function updateCart() {
         url: "/func/update_quantity.php",
         dataType: 'json',
         data: newQuantities,
+        crossDomain: true,
         success: function() {
             console.log(newQuantities);
         }
