@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tag to address insecure content warning -->
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/assets/css/style.css">  
     <title>My Marketplace App</title>
 </head>
 <body>
     
-    <div class="container mx-250">
+    <div class="container">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
             <div class="container-fluid d-flex">
@@ -76,7 +77,4 @@
         </nav> 
 
        <main>
-           
-
-          
-           
+              
