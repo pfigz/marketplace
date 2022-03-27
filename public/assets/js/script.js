@@ -60,7 +60,6 @@ function updateCart() {
         data: newQuantities,
         crossDomain: true,
         success: function() {
-            console.log(newQuantities);
         }
     });
 }
