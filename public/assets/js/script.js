@@ -18,7 +18,7 @@ function updateCart() {
 
     // Get the product prices in an array
     let prices = [];
-    document.querySelectorAll(".price").forEach(function (item) {
+    document.querySelectorAll(".prices").forEach(function (item) {
         let price = item.innerHTML;
         prices.push(price);
     });
