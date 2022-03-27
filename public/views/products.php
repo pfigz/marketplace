@@ -34,14 +34,14 @@ $list_products = $products->getAll($conn);
                                 <button type="submit" class="btn btn-sm btn-outline-secondary">View</button>
                             </form>                                        
                             
-                            <label class="btn btn-sm btn-outline-success" for="add-cart" tabindex="0">Add to Cart</label>                                
+                            <form action="../../func/add_to_cart.php" method="POST">
+                                <input type="hidden" name="quantity" value="1" required>
+                                <input type="hidden" name="productID" value="<?= htmlspecialchars($product['productID']) ?>">
+                                <input type="hidden" name="price" value="<?= htmlspecialchars($product['price']) ?>">
+                                <button class="btn btn-sm btn-outline-success" type="submit">Add to Cart</label>
+                            </form>                               
                         </div>
-                        <form action="../../func/add_to_cart.php" method="POST">
-                            <input type="hidden" name="quantity" value="1" required>
-                            <input type="hidden" name="productID" value="<?= htmlspecialchars($product['productID']) ?>">
-                            <input type="hidden" name="price" value="<?= htmlspecialchars($product['price']) ?>">
-                            <input type="submit" class="d-none" id="add-cart">
-                        </form>
+                        
                         
                         <small class="text-muted">$<?php echo $product['price']?></small>
                     </div>
