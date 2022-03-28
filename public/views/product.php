@@ -8,7 +8,6 @@ $auth = new Auth;
 
 $url = new Url;
 
-
 $products = new Product;
 
 $product = $products->getProduct($conn, $_GET['productID']);
@@ -30,7 +29,6 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                 <?php else: ?>
                     <img src="<?= $product->productImage; ?>" height="100%" width="100%" alt="<?php echo htmlspecialchars($product->productName); ?>">
                 <?php endif; ?>
-                
 
                 <div class="d-flex justify-content-between">
                     <a href="edit_product.php?productID=<?= $product->productID; ?>">Edit Product</a>

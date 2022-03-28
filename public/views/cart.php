@@ -8,8 +8,6 @@ require '../../func/view_cart.php';
 
 <?php require '../../includes/header.php' ?>
 
-<link rel="stylesheet" href="/public/assets/css/styleNew.css">
-
 <?php if (empty($products)): ?>
         <p>Your shopping cart is empty</p>
 <?php else: ?>
