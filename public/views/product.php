@@ -8,6 +8,7 @@ $auth = new Auth;
 
 $url = new Url;
 
+
 $products = new Product;
 
 $product = $products->getProduct($conn, $_GET['productID']);
@@ -20,125 +21,47 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 
 <?php require '../../includes/header.php' ?>
 
-<div class="container d-lg-flex w-75">
-    <div class="d-flex flex-row justify-content-center mb-5">
-        <div class="p-2">
-            <!-- If no product image uploaded, insert dummy image from Picsum according to product id -->
-            <?php if (empty($product->productImage)): ?> 
-                <img src="https://picsum.photos/id/<?= $product->productID; ?>/300" alt="<?php echo htmlspecialchars($product->productName); ?>">
-            <?php else: ?>
-                <img src="<?= $product->productImage; ?>" height="300" width="300" alt="<?php echo htmlspecialchars($product->productName); ?>">
-            <?php endif; ?>
-            
-            <div class="d-flex justify-content-between">
-                <a href="edit_product.php?productID=<?= $product->productID; ?>">Edit Product</a>
-                <a href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
+ <section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row gx-4 gx-lg-5 align-items-center">
+            <div class="col-md-6">                       
+                <?php if (empty($product->productImage)): ?>
+                    <img src="https://picsum.photos/id/<?= $product->productID; ?>/300" width="100%" height="100%" alt="<?php echo htmlspecialchars($product->productName); ?>">
+                <?php else: ?>
+                    <img src="<?= $product->productImage; ?>" height="100%" width="100%" alt="<?php echo htmlspecialchars($product->productName); ?>">
+                <?php endif; ?>
+                
+
+                <div class="d-flex justify-content-between">
+                    <a href="edit_product.php?productID=<?= $product->productID; ?>">Edit Product</a>
+                    <a href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
+                </div>              
             </div>
-        </div>
-    </div>
+            <div class="col-md-6">
+                <h1 class="display-5 fw-bolder"><?= htmlspecialchars($product->productName); ?></h1>
 
-    <div class="d-flex flex-row justify-content-center mb-5">
-        <div class="p-2">
-            <div class="mx-5 p-2">              
-                <h4><?= htmlspecialchars($product->productName); ?></h4>
+                <div class="fs-5 mb-5">
+                    <span>$<?php echo htmlspecialchars($product->price); ?></span>
+                </div>
 
-                <h5>$<?php echo htmlspecialchars($product->price); ?></h5>   
+                <p class="lead"><?php echo htmlspecialchars($product->details); ?></p>
 
-                Description: <?php echo htmlspecialchars($product->details); ?>
-                <br>
-                Amount available: <?php echo htmlspecialchars($product->stock); ?>
-            </div>
+                <div class="d-flex">
+                    <form action="../../func/add_to_cart.php" method="post">
+                        <input class="form-control text-center me-3 mb-1" type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required style="max-width: 4rem"/>
 
-            <div class="d-flex mb-2 align-items-start px-5 justify-content-center">
-                <form action="/../../func/add_to_cart.php" method="POST">
-                    <div class="d-grid gap-1">Quantity:<input type="number" name="quantity" value="1" min="1" max="<?= $product->stock ?>" required></div>
-
-                    <input type="hidden" name="productID" value="<?= $product->productID ?>">
-
-                    <input type="hidden" name="price" value="<?= htmlspecialchars($product->price) ?>">
-                    <br>
-                    <div class="d-grid">
-                        <button class="btn btn-primary" type="submit">Add to cart</button>
-                    </div>
-                </form>
-            </div>          
-        </div>
-    </div>
-</div>
-
-<div class="accordion mt-5">
-
-    <div class="d-flex align-items-end mb-1 justify-content-start">                
-        <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-                       aria-controls="offcanvasScrolling">View Comments</button>
-    </div> 
-
-    <div class="accordion-item">
-        <?php if (!isset($_SESSION['username'])) : ?>
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" disabled type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    You must login to submit a comment
-                </button>
-            </h2>
-        <?php else : ?>
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    Would you like to submit a comment?
-                </button>
-            </h2>
-        <?php endif; ?>
-        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
-            <div class="accordion-body">
-                <div class="container">
-                    <form action="../../func/comment.php" class="comment" method="POST">
                         <input type="hidden" name="productID" value="<?= $product->productID ?>">
-                        <input type="hidden" name="username" value="<?php (!isset($_SESSION['username'])) ? '' : $_SESSION['username'] ?>">
-                        <label for="rating">Rating</label>
-                        <div class="input-group">
-                            <input type="number" name="rating" value="" min="0" max="5">
-                        </div>
-                        <label for="comment">Subject</label>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control" name="comment" id="comment" placeholder="What's the subject of your review?">
-                        </div>
-                        <label for="comment">Review</label>
-                        <div class="input-group mb-3">
-                            <textarea class="form-control" name="comment" id="comment"></textarea>
-                        </div>
-                        <input type="submit" value="Submit">
+                        
+                        <input type="hidden" name="price" value="<?= htmlspecialchars($product->price) ?>">
+                        <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-            
-             
-
-<!-- Display comments off canvas -->
-<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Comments</h5>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-  <div class="row">
-    <?php foreach ($comments as $c): ?>
-        <div>Username: <?php echo $c['username'] ?></div>
-        <div>Rating: <?php echo $c['rating'] ?></div>
-        <div>Comment: <?php echo $c['comment'] ?></div>
-    <?php endforeach; ?>
-</div>
-  </div>
-</div>
-
-<!-- Display comments on page -->
-<!-- <div class="row">
-    <?php foreach ($comments as $c): ?>
-        <div>Username: <?php echo $c['username'] ?></div>
-        <div>Rating: <?php echo $c['rating'] ?></div>
-        <div>Comment: <?php echo $c['comment'] ?></div>
-    <?php endforeach; ?>
-</div> -->
+</section>
 
 <?php require '../../includes/footer.php' ?>
