@@ -29,10 +29,12 @@
             </div>
         </div>
 
+        
         <div class="form-group mb-3">
             <div>
-                <label for="image" class="form-label">Product Image</label>
-                <input type="file" class="form-control" name="image" id="image">
+                <small>Image uploads currently disabled</small>
+                <!-- <label for="image" class="form-label">Product Image</label> -->
+                <input type="file" class="form-control" name="image" id="image" disabled>
             </div>
         </div>
 
