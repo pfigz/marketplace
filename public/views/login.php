@@ -37,21 +37,28 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <div class="container d-flex justify-content-center">
         <div class="login">   
-            <form method="POST" id="login">
-                <div class="username">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+            <form method="POST" class="needs-validation" id="login">
+                <div class="form-floating">
+                    <div class="invalid-feedback">
+                        Your username is required.
+                    </div>
+                    <input type="text" class="form-control" id="floatingUsername" name="username" placeholder="Username">
+                    <label for="username">Username</label>
                 </div>
-    
-                <div class="password">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter a password">
+
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
                 </div>
-    
-                <div class="container d-flex justify-content-center mt-3">
-                    <button class="btn btn-outline-dark" type="submit">Submit</button>
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
                 </div>
-            </form>   
+                
+                <button class="w-100 btn btn-lg btn-outline-dark" type="submit">Sign in</button>    
+            </form>
         </div>
     </div>
 </div>

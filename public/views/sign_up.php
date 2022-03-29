@@ -35,26 +35,37 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <h2>Please sign-up to view our products</h2>
 </div>
 
+<div class="container d-flex justify-content-center mb-5 mt-5">
+    <h5>Already have an account? Please <a href="/marketplacelocal/public/views/login.php">log in</a>.</h5>
+</div>
+
     <div class="container d-flex justify-content-center">
-        <form method="POST" id="signUp">
-            <div class="username">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control mb-2" name="username" id="username" placeholder="Enter username" value="<?= $customer->username; ?>">
+        <form method="POST" class="needs-validation" id="signUp">
+            <div class="form-floating">
+                <div class="invalid-feedback">
+                        Your username is required.
+                </div>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter a username">
+                <label for="floatingInput">Username</label>       
             </div>
 
-            <div class="email">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control mb-2" name="email" id="email" placeholder="Enter your email address" value="<?= $customer->email; ?>">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+                <div class="invalid-feedback">
+                    Your email is required.
+                </div>
             </div>
 
-            <div class="password">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Enter a password" value="<?= $customer->password; ?>">
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+                <div class="invalid-feedback">
+                    Your password is required.
+                </div>
             </div>
 
-            <div class="container d-flex justify-content-center mt-3">
-                <button class="btn btn-outline-dark" type="submit">Submit</button>
-            </div>         
+            <button class="w-100 btn btn-lg btn-outline-dark" type="submit">Sign up</button>
         </form>
     </div>
 
