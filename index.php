@@ -2,6 +2,8 @@
 
 require 'includes/init.php';
 
+require 'includes/set_session.php';
+
 $conn = require 'includes/db.php';
 
 $auth = new Auth;
