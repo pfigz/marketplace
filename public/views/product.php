@@ -29,11 +29,13 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                 <?php else: ?>
                     <img src="<?= $product->productImage; ?>" height="100%" width="100%" alt="<?php echo htmlspecialchars($product->productName); ?>">
                 <?php endif; ?>
-
-                <div class="d-flex justify-content-between">
-                    <a href="edit_product.php?productID=<?= $product->productID; ?>">Edit Product</a>
-                    <a href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
-                </div>              
+                
+                <?php if ($auth->isLoggedIn()) : ?>
+                    <div class="d-flex justify-content-between">
+                        <a href="edit_product.php?productID=<?= $product->productID; ?>">Edit Product</a>
+                        <a href="remove_product.php?productID=<?= $product->productID; ?>">Delete Product</a>
+                    </div>
+                <?php endif; ?>               
             </div>
             <div class="col-md-6">
                 <h1 class="display-5 fw-bolder"><?= htmlspecialchars($product->productName); ?></h1>
