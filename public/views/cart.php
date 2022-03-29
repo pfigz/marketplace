@@ -2,6 +2,8 @@
 
 require '../../includes/init.php';
 
+require '../../includes/set_session.php';
+
 require '../../func/view_cart.php';
 
 ?>
