@@ -25,7 +25,7 @@
         <div class="form-group mb-3">
             <label for="details" class="form-label">Product details</label>
             <div class="input-group">
-                <textarea class="form-control" name="details" id="details" placeholder="Type product details here" aria-label="Product details" value="<?= $product->details; ?>"></textarea>
+                <textarea class="form-control" name="details" id="details" placeholder="Type product details here" aria-label="Product details"><?= $product->details; ?></textarea>
             </div>
         </div>
 
