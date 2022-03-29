@@ -1,4 +1,4 @@
-<div class="container w-75">
+<div class="container d-flex justify-content-center">
     <form autocomplete="off" method="POST" enctype="multipart/form-data" id="productForm">
         <div class="form-group mb-3">
             <div>
@@ -15,16 +15,17 @@
         </div>
 
         <div class="form-group mb-3">
-            <div>
-                <label for="price" class="form-label">Product Price</label>
+            <label for="price" class="form-label">Product Price</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text">$</span>
                 <input type="text" class="form-control" name="price" id="price" placeholder="Price" value="<?= $product->price; ?>">
             </div>
         </div>
 
         <div class="form-group mb-3">
-            <div>
-                <label for="details" class="form-label">Product details</label>
-                <input type="text" class="form-control" name="details" id="details" placeholder="Type product details here" value="<?= $product->details; ?>">
+            <label for="details" class="form-label">Product details</label>
+            <div class="input-group">
+                <textarea class="form-control" name="details" id="details" placeholder="Type product details here" aria-label="Product details" value="<?= $product->details; ?>"></textarea>
             </div>
         </div>
 
@@ -36,7 +37,7 @@
         </div>
 
         <div class="form-group d-flex justify-content-center">
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-dark" type="submit">Submit</button>
         </div>
     </form>
 </div>
