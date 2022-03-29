@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </div>
 
             <div class="container d-flex justify-content-center mt-3">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-outline-dark" type="submit">Submit</button>
             </div>         
         </form>
     </div>

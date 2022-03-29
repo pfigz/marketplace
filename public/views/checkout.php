@@ -27,7 +27,7 @@ $products = $cart->viewCart($conn, $_SESSION['quantity']);
     <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary"><?= (isset($_SESSION['username'])) ? htmlspecialchars($_SESSION['username']) . '\'s' : 'Guest\'s' ?> cart</span>
+                <span class="text-dark"><?= (isset($_SESSION['username'])) ? htmlspecialchars($_SESSION['username']) . '\'s' : 'Guest\'s' ?> cart</span>
             </h4>
             <ul class="list-group mb-3">
                 <?php foreach ($products as $p): ?>
@@ -196,7 +196,7 @@ $products = $cart->viewCart($conn, $_SESSION['quantity']);
 
                 <hr class="my-4">
 
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Checkout</button>
+                <button class="w-100 btn btn-outline-dark btn-lg" type="submit">Checkout</button>
             </form>
         </div>
     </div>

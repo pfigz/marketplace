@@ -73,7 +73,7 @@ require '../../func/view_cart.php';
                         <a href="checkout.php" class="btn btn-out btn-success btn-square btn-main" data-abc="true">
                             Proceed to Checkout
                         </a> 
-                        <a href="../views/products.php" class="btn btn-out btn-primary btn-square btn-main mt-2" data-abc="true">
+                        <a href="../views/products.php" class="btn btn-out btn-dark btn-square btn-main mt-2" data-abc="true">
                             Continue Shopping
                         </a>
                     </div>
