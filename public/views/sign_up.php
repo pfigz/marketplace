@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </div>
 
 <div class="container d-flex justify-content-center mb-5 mt-5">
-    <h5>Already have an account? Please <a href="/marketplacelocal/public/views/login.php">log in</a>.</h5>
+    <h5>Already have an account? Please <a href="/public/views/login.php">log in</a>.</h5>
 </div>
 
     <div class="container d-flex justify-content-center">
