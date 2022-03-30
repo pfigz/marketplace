@@ -101,10 +101,10 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 
                         <label for="comment">Subject</label>
                         <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control" name="comment" id="comment" placeholder="What's the subject of your review?">
+                            <input type="text" class="form-control" name="comment" id="comment" placeholder="What's the topic of your comment?">
                         </div>
 
-                        <label for="comment">Review</label>
+                        <label for="comment">Comment</label>
                         <div class="input-group mb-3">
                             <textarea class="form-control" name="comment" id="comment"></textarea>
                         </div>
