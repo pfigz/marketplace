@@ -30,7 +30,10 @@ $list_products = $products->getAll($conn);
 
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $product['productName']?></h5>
-                        <p class="card-text"><?php echo (strlen($product['details']) >= 35) ? substr(htmlspecialchars($product['details']), 0, 35) . "..." : htmlspecialchars($product['details']); ?></p>
+
+                        <p class="card-text">
+                            <?php echo (strlen($product['details']) >= 35) ? substr(htmlspecialchars($product['details']), 0, 35) . "..." : htmlspecialchars($product['details']); ?>
+                        </p>
 
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group"> 
@@ -45,7 +48,7 @@ $list_products = $products->getAll($conn);
                                     <button class="btn btn-sm btn-outline-success" type="submit">Add to Cart</label>
                                 </form>                               
                             </div>
-                                                       
+
                             <small class="text-muted">
                                 $<?php echo $product['price']?>
                             </small>
