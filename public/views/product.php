@@ -109,7 +109,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                             <textarea class="form-control" name="comment" id="comment"></textarea>
                         </div>
                         
-                        <input type="submit" value="Submit">
+                        <button class="btn btn-sm btn-outline-success" type="submit"></button>
                     </form>
                 </div>
             </div>
