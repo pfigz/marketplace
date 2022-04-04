@@ -8,25 +8,22 @@
             <?php endif; ?>
         </div>
         <form autocomplete="off" method="POST" enctype="multipart/form-data" id="productForm">
-            <div class="form-group mb-3">
-                <div>
-                    <label for="productName" class="form-label">Product Name</label>
-                    <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name" value="<?= $product->productName; ?>">
-                </div>
+            <div class="form-group mb-3">             
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name" value="<?= $product->productName; ?>">
             </div>
-            <div class="form-group mb-3">
-                <div>
-                    <label for="stock" class="form-label">Product Stock</label>
+
+            <div class="form-group row mb-3">
+                <div class="col">
                     <input type="text" class="form-control" name="stock" id="stock" placeholder="Stock Amount" value="<?= $product->stock; ?>">
                 </div>
-            </div>
-            <div class="form-group mb-3">
-                <label for="price" class="form-label">Product Price</label>
-                <div class="input-group mb-3">
+
+                <div class="input-group col">
                     <span class="input-group-text">$</span>
                     <input type="text" class="form-control" name="price" id="price" placeholder="Price" value="<?= $product->price; ?>">
                 </div>
             </div>
+            
             <div class="form-group mb-3">
                 <label for="details" class="form-label">Product details</label>
                 <div class="input-group">
