@@ -38,8 +38,8 @@
                     <input type="file" class="form-control" name="image" id="image" disabled>
                 </div>
             </div>
-            <div class="form-group d-flex justify-content-center">
-                <button class="btn btn-dark" type="submit">Submit</button>
+            <div class="form-group d-grid gap-2">
+                <button class="btn btn-outline-dark" type="submit">Submit</button>
             </div>
         </form>
     </div>
