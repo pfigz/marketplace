@@ -7,7 +7,8 @@
                 <h3>Edit Product Form</h3>
             <?php endif; ?>
         </div>
-        <form autocomplete="off" method="POST" enctype="multipart/form-data" id="productForm">
+
+        <form class="p-3" autocomplete="off" method="POST" enctype="multipart/form-data" id="productForm">
             <div class="form-group mb-3">             
                 <label for="productName" class="form-label">Product Name</label>
                 <input type="text" class="form-control" name="productName" id="productName" placeholder="Product Name" value="<?= $product->productName; ?>">
@@ -38,6 +39,7 @@
                     <input type="file" class="form-control" name="image" id="image" disabled>
                 </div>
             </div>
+            
             <div class="form-group d-grid gap-2">
                 <button class="btn btn-outline-dark" type="submit">Submit</button>
             </div>
