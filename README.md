@@ -51,8 +51,6 @@ Project is: _in progress_
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
 Room for improvement:
 - Add pagination to view products page and comments on product page 
 - Make short and long descriptions for products
@@ -72,7 +70,7 @@ To do:
 
 ## Acknowledgements
 - Much of the boilerplate for this project comes from: [this tutorial](https://www.udemy.com/course/php-for-beginners-/).
-- 
+
 
 
 ## Contact
