@@ -20,8 +20,10 @@ $products = $cart->viewCart($conn, $_SESSION['quantity']);
     
     <div class="py-5 text-center">
         <i class="fas fa-store fa-3x"></i>
-
         <h2>Checkout</h2>
+        <div class="d-flex justify-content-center">
+            <h6><strong>**Please do not enter personal information! This site is for testing/education only**</strong></h6>
+        </div>
     </div>
 
     <div class="row g-5">
