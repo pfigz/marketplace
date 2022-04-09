@@ -31,8 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 <?php require '../../includes/header.php' ?>
 
-<div class="container d-flex justify-content-center mt-5 mb-5">
-    <h2>Please sign-up to view our products</h2>
+<div class="container d-flex flex-column p-5">
+    <div class="d-flex justify-content-center mb-2">
+        <h2>Sign up here!</h2>
+    </div>
+    <div class="d-flex justify-content-center">
+        <h6><strong>**Please do not enter personal information! This site is for testing/education only**</strong></h6>
+    </div>
 </div>
 
 <div class="container d-flex justify-content-center mb-5 mt-5">

@@ -20,7 +20,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
 
 <?php require '../../includes/header.php' ?>
 
- <section class="py-5">
+<section class="py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
             <div class="col-md-6">                       
@@ -60,67 +60,67 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                     </form>
                 </div>
             </div>
+            <!-- Comments Section -->
+            <div class="accordion mt-1">
+                <div class="d-flex align-items-end mb-1 justify-content-start">                
+                    <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+                    aria-controls="offcanvasScrolling">View Comments</button>
+                </div> 
+                
+                <div class="accordion-item">
+                    <?php if (! isset($_SESSION['username'])) : ?>
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" disabled type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                You must login to submit a comment
+                            </button>
+                        </h2>
+                    <?php else : ?>
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Would you like to submit a comment?
+                            </button>
+                        </h2>
+                    <?php endif; ?>
+                    <!-- Comment Form -->
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                        <div class="accordion-body">
+                            <div class="container">
+                                <form action="../../func/comment.php" class="comment" method="POST">
+                                    <input type="hidden" name="productID" value="<?= $product->productID ?>">
+
+                                    <input type="hidden" name="username" value="<?php (! isset($_SESSION['username'])) ? '' : $_SESSION['username'] ?>">
+
+                                    <label for="rating">Rating</label>
+                                    <div class="input-group">
+                                        <input type="number" name="rating" value="" min="0" max="5">
+                                    </div>
+
+                                    <label for="comment">Subject</label>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" class="form-control" name="comment" id="comment" placeholder="What's the topic of your comment?">
+                                    </div>
+
+                                    <label for="comment">Comment</label>
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control" name="comment" id="comment"></textarea>
+                                    </div>
+                                    
+                                    <button class="btn btn-outline-dark" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div> <!-- Comment Form -->
+                </div>
+            </div> <!-- Comments Section -->
         </div>
     </div>
 </section>
 
-<!-- Comments Section -->
-<div class="accordion mt-1">
-    <div class="d-flex align-items-end mb-1 justify-content-start">                
-        <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-        aria-controls="offcanvasScrolling">View Comments</button>
-    </div> 
-
-    <div class="accordion-item">
-        <?php if (!isset($_SESSION['username'])) : ?>
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" disabled type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    You must login to submit a comment
-                </button>
-            </h2>
-        <?php else : ?>
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                    Would you like to submit a comment?
-                </button>
-            </h2>
-        <?php endif; ?>
-
-        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
-            <div class="accordion-body">
-                <div class="container">
-                    <form action="../../func/comment.php" class="comment" method="POST">
-                        <input type="hidden" name="productID" value="<?= $product->productID ?>">
-
-                        <input type="hidden" name="username" value="<?php (!isset($_SESSION['username'])) ? '' : $_SESSION['username'] ?>">
-
-                        <label for="rating">Rating</label>
-                        <div class="input-group">
-                            <input type="number" name="rating" value="" min="0" max="5">
-                        </div>
-
-                        <label for="comment">Subject</label>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="text" class="form-control" name="comment" id="comment" placeholder="What's the topic of your comment?">
-                        </div>
-
-                        <label for="comment">Comment</label>
-                        <div class="input-group mb-3">
-                            <textarea class="form-control" name="comment" id="comment"></textarea>
-                        </div>
-                        
-                        <button class="btn btn-outline-dark" type="submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Display comments off canvas -->
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Comments</h5>
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Comments</h5>    
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     
@@ -130,7 +130,9 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                 <div>
                     <small class=""><?php echo $c['username'] ?></small>
                 </div>
+
                 <div>Rating: <?php echo $c['rating'] ?></div>
+
                 <p><?php echo $c['comment'] ?></p>          
             </div>
         <?php endforeach; ?>
