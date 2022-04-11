@@ -15,11 +15,11 @@ $auth = new Auth;
 <div class="container d-flex flex-column">
     <?php if (!$auth->isLoggedIn()): ?>
         <div class="d-flex justify-content-center mt-3">
-            <h2>Welcome to The Market Place</h2>
+            <h2 class="text-center">Welcome to The Market Place</h2>
         </div>
     <?php else : ?>
         <div class="container d-flex justify-content-center mt-3">
-            <h2>Welcome to the Market Place <?= htmlspecialchars($_SESSION['username']); ?></h2>
+            <h2 class="text-center">Welcome to the Market Place <?= htmlspecialchars($_SESSION['username']); ?></h2>
         </div>
     <?php endif; ?>
 
