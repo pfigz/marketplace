@@ -37,7 +37,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
                     </div>
                 <?php endif; ?>               
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mb-5">
                 <h1 class="display-5 fw-bolder"><?= htmlspecialchars($product->productName); ?></h1>
 
                 <div class="fs-5 mb-5">
@@ -62,7 +62,7 @@ $comments = $comment->getComments($conn, $_GET['productID']);
             </div>
             <!-- Comments Section -->
             <div class="accordion mt-1">
-                <div class="d-flex align-items-end mb-1 justify-content-start">                
+                <div class="d-flex align-items-end mb-3 justify-content-start">                
                     <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
                     aria-controls="offcanvasScrolling">View Comments</button>
                 </div> 
