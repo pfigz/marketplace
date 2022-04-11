@@ -24,7 +24,7 @@ $auth = new Auth;
     <?php endif; ?>
 
         <div class="d-flex justify-content-center mb-5">
-            <h6>**Not a live marketplace, for testing/building purposes only**</h6>
+            <h6 class="text-center">**Not a live marketplace, for testing purposes only**</h6>
         </div>
             
         <div class="container d-flex justify-content-center mb-5">  
@@ -33,11 +33,11 @@ $auth = new Auth;
         
     <?php if (!$auth->isLoggedIn()): ?>
         <div class="d-flex  justify-content-center">
-            <h4>Please <a href="/public/views/sign_up.php">signup</a> or <a href="/public/views/login.php">login</a> to add products and submit comments</h4>
+            <h4 class="text-center">Please <a href="/public/views/sign_up.php">signup</a> or <a href="/public/views/login.php">login</a> to add products and submit comments</h4>
         </div> 
     <?php else : ?>
         <div class="d-flex justify-content-center">
-            <h5>Thanks for signing in! Click the icon to view products, or click Add Product above to add your own!</h5>
+            <h5 class="text-center">Thanks for signing in! Click the icon to view products, or click Add Product above to add your own!</h5>
         </div>
     <?php endif; ?>
 </div>
