@@ -28,7 +28,7 @@ $auth = new Auth;
         </div>
             
         <div class="container d-flex justify-content-center mb-5">  
-            <a href="/public/views/products.php"><img src="/public/assets/images/site/online-shopping.png" alt="An online shopping icon"></a>
+            <a href="/public/views/products.php"><img class="img-fluid" src="/public/assets/images/site/online-shopping.png" alt="An online shopping icon"></a>
         </div>
         
     <?php if (!$auth->isLoggedIn()): ?>
