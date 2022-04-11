@@ -66,6 +66,7 @@ To do:
 - Update database to include created_at date for comment sorting
 - Build Dockerfile 
 - Build proper dev pipeline 
+- Create separate admin and customer panels 
 
 
 ## Acknowledgements
