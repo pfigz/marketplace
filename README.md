@@ -1,6 +1,8 @@
+## Due to the Heroku/Github security breach, this repo is not current. I will merge the most recent changes from the mirrored Heroku repo as soon as possible.
+
 # The Marketplace
 > A simple e-commerce site written in PHP
-> Live demo [_here_](https://mymarketplace-app.herokuapp.com/). 
+> Live demo [_here_](https://mymarketplace-app.herokuapp.com/).
 
 ## Table of Contents
 * [General Info](#general-information)
