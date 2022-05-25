@@ -77,7 +77,7 @@ To do:
 
 
 ## Contact
-Created by [@fig_dev](https://www.figgy.monster/) pfigdev@gmail.com
+Created by [@fig_dev](https://pfigdev.xyz) pfigdev@gmail.com
 
 
 ## License
